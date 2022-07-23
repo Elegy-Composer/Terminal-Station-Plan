@@ -1,0 +1,186 @@
+{
+    "name": "CharacterControls",
+    "maps": [
+        {
+            "name": "1PGridMovement",
+            "id": "b01465d3-9c69-46f0-9acd-a5c1d5302561",
+            "actions": [
+                {
+                    "name": "Up",
+                    "type": "Button",
+                    "id": "7df8bcda-3a57-4910-b11d-287934c1f108",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Left",
+                    "type": "Button",
+                    "id": "b152c0b4-c65c-4019-b1a0-f5adb8c22bc6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Down",
+                    "type": "Button",
+                    "id": "2bd1ec4f-38a2-455f-96ce-3d5a83f196c1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Right",
+                    "type": "Button",
+                    "id": "e78fe0e4-2d25-4b2a-9350-6096a174abae",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c3b83c90-c704-4fe9-9f6d-99622248e07a",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c7ea76a6-5ec6-4c36-998b-4601a7a377b9",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cdca0333-15b1-44e1-81ed-78aa13915aea",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c7f5e87-aa38-42b2-8302-1daebeb6099c",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "2PGridMovement",
+            "id": "9b729fff-b789-4f26-a115-a2cae43e047c",
+            "actions": [
+                {
+                    "name": "Right",
+                    "type": "Button",
+                    "id": "bad91cd5-7512-4362-849b-d76113d06f46",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Down",
+                    "type": "Button",
+                    "id": "8369b7d6-8330-4b03-9b4f-4f622dce4c51",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Left",
+                    "type": "Button",
+                    "id": "e5ad079a-609a-475f-84fd-3844b6fb072f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Up",
+                    "type": "Button",
+                    "id": "afadd9a4-4909-4e95-ac01-7fc887e6df2b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bbd0255a-6295-4ba0-9473-3dc1c258206d",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de0f7790-ecec-4b34-8927-cb892be1d4c4",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4ccdf79-50cd-453f-80aa-13a0f4e20848",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5262b540-349f-4640-b874-42308ebca498",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Controll",
+            "bindingGroup": "Controll",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
