@@ -79,6 +79,7 @@ public class GridMovement : MonoBehaviour
     private void setMovement(Action action, float x, float y)
     {
         //new action take over
+        stepStopAccumulated = stepDuration;
         currentAction = action;
         movement = new Vector2(x * xUnit, y * yUnit);
     }
