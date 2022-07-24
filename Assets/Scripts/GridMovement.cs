@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
 public class GridMovement : MonoBehaviour
 {
+    public Tilemap map;
+
     public float xUnit = 1f;
     public float yUnit = 0.37f;
 
@@ -90,6 +93,9 @@ public class GridMovement : MonoBehaviour
         {
             currentAction = Action.NONE;
             movement = Vector2.zero;
+
+            // Position After Movement
+            Debug.Log(map.WorldToCell(gameObject.transform.position));
         }
     }
 }
