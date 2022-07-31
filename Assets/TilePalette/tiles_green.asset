@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: tiles_green
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: 8c411f25cd6fe4f4bbdcc8438e553a00, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.20279312, a: 1}
+  m_Color: {r: 0.01728785, g: 1, b: 0, a: 1}
   m_Transform:
     e00: 1
     e01: 0
