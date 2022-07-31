@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.InputSystem;
+using MapObject.Interactable;
 using static UnityEngine.InputSystem.InputAction;
 
 public class GridMovement : MonoBehaviour
@@ -20,6 +21,8 @@ public class GridMovement : MonoBehaviour
 
     private Vector2 movement = Vector2.zero;
     private Vector3 lastTarget;
+
+    private IInteractable interactTargetObject;
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +74,7 @@ public class GridMovement : MonoBehaviour
     {
         if (isPressed)
         {
-            setMovement(action, x, y);
+            if (preMovementSetup(action, x, y)) setMovement(action, x, y);
         }
         else
         {
@@ -79,9 +82,42 @@ public class GridMovement : MonoBehaviour
         }
     }
 
+    private bool preMovementSetup(Action action, float x, float y)
+    {
+        // If interacting -> do not move
+        if (interactTargetObject != null)
+        {
+            if (!interactTargetObject.CheckInteractionEnd()) return false;
+            else interactTargetObject = null;
+        }
+
+        Vector2 vec = new Vector2(x * xUnit, y * yUnit);
+        
+        // offset the raycast origin a little bit, so we won't interact with the block below us again
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(vec.x * 0.5f, vec.y * 0.5f, 0), vec, 0.5f);
+
+        // If it hits something...
+        if (hit.collider != null)
+        {
+            if (hit.collider.gameObject.CompareTag("Obstacle"))
+            {
+                Debug.Log("Raycast Obstacle!");
+                return false;
+            }
+
+            if (hit.collider.gameObject.GetComponent<IInteractable>() != null)
+            {
+                Debug.Log("Raycast IInteractable");
+                interactTargetObject = hit.collider.gameObject.GetComponent<IInteractable>();
+            }
+        }
+
+        return true;
+    }
+
     private void setMovement(Action action, float x, float y)
     {
-        //new action take over
+        // new action take over
         stepStopAccumulated = stepDuration;
         currentAction = action;
         movement = new Vector2(x * xUnit, y * yUnit);
@@ -96,6 +132,11 @@ public class GridMovement : MonoBehaviour
 
             // Position After Movement
             Debug.Log(map.WorldToCell(gameObject.transform.position));
+
+            if (interactTargetObject != null)
+            {
+                interactTargetObject.Interact();
+            }
         }
     }
 }
