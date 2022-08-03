@@ -41,7 +41,7 @@ public class GridMovement : MonoBehaviour
                 stepStopAccumulated = 0f;
                 if (movement != Vector2.zero)
                 {
-                    Vector3 move = new Vector3(movement.x, movement.y, 0);
+                    Vector3 move = movement.ExtendToVector3();
                     bool canMove = true;
                     BeforeMoveEvent?.Invoke(() => canMove = false, movement);
 

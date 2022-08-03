@@ -4643,9 +4643,10 @@ GameObject:
   - component: {fileID: 197847541}
   - component: {fileID: 197847543}
   - component: {fileID: 197847544}
+  - component: {fileID: 197847545}
   m_Layer: 0
   m_Name: Character1P
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4812,6 +4813,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &197847545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197847535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6debba33f6cb45188df158c469e88da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 41336043}
+  otherCharacter: {fileID: 889366538}
 --- !u!1 &552565844
 GameObject:
   m_ObjectHideFlags: 0
@@ -5120,9 +5135,10 @@ GameObject:
   - component: {fileID: 889366540}
   - component: {fileID: 889366545}
   - component: {fileID: 889366546}
+  - component: {fileID: 889366547}
   m_Layer: 0
   m_Name: Character2P
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5289,6 +5305,20 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &889366547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889366538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6debba33f6cb45188df158c469e88da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 41336043}
+  otherCharacter: {fileID: 197847535}
 --- !u!1 &896144278
 GameObject:
   m_ObjectHideFlags: 0
