@@ -28,6 +28,7 @@ public class Interactor : MonoBehaviour
         if (isInteracting)
         {
             abortMovement();
+            return;
         }
         else
         {
