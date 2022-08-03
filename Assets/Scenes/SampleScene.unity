@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.20749098, g: 0.2114744, b: 0.1457679, a: 1}
+  m_IndirectSpecularColor: {r: 0.20749143, g: 0.21147497, b: 0.14576834, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4787,7 +4787,6 @@ GameObject:
   - component: {fileID: 552565845}
   - component: {fileID: 552565848}
   - component: {fileID: 552565847}
-  - component: {fileID: 552565846}
   m_Layer: 0
   m_Name: WallTile
   m_TagString: Obstacle
@@ -4810,18 +4809,6 @@ Transform:
   m_Father: {fileID: 1127915277}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &552565846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552565844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8a830afb18d64438ab3aa898eb2d4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!68 &552565847
 EdgeCollider2D:
   m_ObjectHideFlags: 0
