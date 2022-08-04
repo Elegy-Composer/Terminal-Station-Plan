@@ -1,11 +1,16 @@
 using UnityEngine;
 using System;
 using MapObject.Interactable;
-using UnityEngine.Tilemaps;
 
-public class Interactor : MonoBehaviour
+/*
+ * TODO: Currently the way to distinguish different IInteractable hasn't been decided yet.
+ * Remember to adjust preMovement after it's decided and make sure this only handles the specified type of IInteractable.
+ * (Or even further adjustment, if we decided to handle all IInteractable in one place)
+ */
+
+public class StepOnExclusiveSingleLockInteractor : MonoBehaviour
 {
-    public Tilemap map;
+    public StepOnExclusiveSingleLockInteractor otherInteractor;
     private IInteractable interactTargetObject;
     void Start()
     {
@@ -41,18 +46,18 @@ public class Interactor : MonoBehaviour
         // If it hits something...
         if (hit.collider != null)
         {
-            if (hit.collider.gameObject.GetComponent<IInteractable>() != null)
+            IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+            if (interactable != otherInteractor.interactTargetObject && (interactable?.CheckInteractionEnd() ?? false))
             {
-                Debug.Log("Raycast IInteractable");
-                interactTargetObject = hit.collider.gameObject.GetComponent<IInteractable>();
+                Debug.Log("Raycast available IInteractable");
+                interactTargetObject = interactable;
+                return;
             }
         }
     }
 
     private void afterMovement()
     {
-        // Position After Movement
-        Debug.Log(map.WorldToCell(gameObject.transform.position));
         interactTargetObject?.Interact();
     }
 }

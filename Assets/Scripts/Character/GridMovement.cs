@@ -1,21 +1,57 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
+/// <summary>
+/// It is recommended that you try to implement move-related behaviour with <see cref="BeforeMoveEvent"/> and <see cref="MoveFinishedEvent"/> first, and change <see cref="GridMovement"/> only when those two can't satisfy your need.
+/// </summary>
 public class GridMovement : MonoBehaviour
 {
     public float xUnit = 1f;
     public float yUnit = 0.37f;
+    public Tilemap tilemap;
 
     public float stepDuration = 0.5f;
     private float stepStopAccumulated = 0f;
 
     private Vector2 movement = Vector2.zero;
     private Vector3 lastTarget;
+    public Vector3Int lastTargetToCell
+    {
+        get
+        {
+            return tilemap.WorldToCell(lastTarget);
+        }
+    }
 
+    /// <summary>
+    /// The delegate type of the <see cref="BeforeMoveEvent"/>.
+    /// During the event, you may abort the upcoming movement.
+    /// </summary>
+    /// 
+    /// <param name="abortMovement">
+    /// A callback that provides the ability to abort the upcoming movement
+    /// 
+    /// Unless you're pretty sure what you're doing, you should put a return after every <c>abortMovement()</c> call. That will be the correct behaviour (for most of the time).
+    /// </param>
+    /// 
+    /// <param name="direction">
+    /// The direction of the upcoming movement.
+    /// 
+    /// You may calculate the destination by extending it to Vector3 and adding the ruselt to current GameObject's position.
+    /// See example in <see cref="CharacterDetector"/>.
+    /// </param>
     public delegate void BeforeMove(System.Action abortMovement, Vector2 direction);
+
+    /// <summary>
+    /// The event that will invoke before moving.
+    /// </summary>
     public event BeforeMove BeforeMoveEvent;
 
     public delegate void MoveFinished();
+    /// <summary>
+    /// The event that will invoke after moving to the destination
+    /// </summary>
     public event MoveFinished MoveFinishedEvent;
     private bool moving = false;
 
@@ -41,7 +77,7 @@ public class GridMovement : MonoBehaviour
                 stepStopAccumulated = 0f;
                 if (movement != Vector2.zero)
                 {
-                    Vector3 move = new Vector3(movement.x, movement.y, 0);
+                    Vector3 move = movement.ExtendToVector3();
                     bool canMove = true;
                     BeforeMoveEvent?.Invoke(() => canMove = false, movement);
 

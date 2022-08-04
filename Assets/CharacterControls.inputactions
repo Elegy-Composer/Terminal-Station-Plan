@@ -11,7 +11,8 @@
                     "id": "7df8bcda-3a57-4910-b11d-287934c1f108",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Left",
@@ -19,7 +20,8 @@
                     "id": "b152c0b4-c65c-4019-b1a0-f5adb8c22bc6",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Down",
@@ -27,7 +29,8 @@
                     "id": "2bd1ec4f-38a2-455f-96ce-3d5a83f196c1",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Right",
@@ -35,7 +38,17 @@
                     "id": "e78fe0e4-2d25-4b2a-9350-6096a174abae",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Switch",
+                    "type": "Button",
+                    "id": "78eae216-5cdb-4b84-a7bb-c501bb89e543",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -82,6 +95,17 @@
                     "action": "Right",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "23120353-62eb-4ed1-9b8d-60dc58f608ce",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controll",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -95,7 +119,8 @@
                     "id": "bad91cd5-7512-4362-849b-d76113d06f46",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Down",
@@ -103,7 +128,8 @@
                     "id": "8369b7d6-8330-4b03-9b4f-4f622dce4c51",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Left",
@@ -111,7 +137,8 @@
                     "id": "e5ad079a-609a-475f-84fd-3844b6fb072f",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Up",
@@ -119,7 +146,17 @@
                     "id": "afadd9a4-4909-4e95-ac01-7fc887e6df2b",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Switch",
+                    "type": "Button",
+                    "id": "871633b2-ab58-49d3-96e8-82e8c6809b19",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -164,6 +201,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "15937652-1c99-486b-8963-7fce1f25c81b",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controll",
+                    "action": "Switch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
