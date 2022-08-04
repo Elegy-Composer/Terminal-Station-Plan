@@ -10,6 +10,7 @@ using MapObject.Interactable;
 
 public class StepOnExclusiveSingleLockInteractor : MonoBehaviour
 {
+    public StepOnExclusiveSingleLockInteractor otherInteractor;
     private IInteractable interactTargetObject;
     void Start()
     {
@@ -46,10 +47,11 @@ public class StepOnExclusiveSingleLockInteractor : MonoBehaviour
         if (hit.collider != null)
         {
             IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
-            if (interactable?.CheckInteractionEnd() ?? false)
+            if (interactable != otherInteractor.interactTargetObject && (interactable?.CheckInteractionEnd() ?? false))
             {
                 Debug.Log("Raycast available IInteractable");
                 interactTargetObject = interactable;
+                return;
             }
         }
     }
