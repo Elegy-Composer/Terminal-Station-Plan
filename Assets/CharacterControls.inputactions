@@ -99,7 +99,7 @@
                 {
                     "name": "",
                     "id": "23120353-62eb-4ed1-9b8d-60dc58f608ce",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controll",
@@ -207,7 +207,7 @@
                 {
                     "name": "",
                     "id": "15937652-1c99-486b-8963-7fce1f25c81b",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controll",

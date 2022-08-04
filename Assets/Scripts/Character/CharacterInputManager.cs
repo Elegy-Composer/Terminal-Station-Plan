@@ -4,7 +4,13 @@ using UnityEngine.InputSystem.Users;
 
 public class CharacterInputManager : MonoBehaviour
 {
-    public static bool isSinglePlayer = false;
+    private bool isSinglePlayer
+    {
+        get
+        {
+            return GameObject.Find("PlayerMode").GetComponent<PlayerMode>().singlePlayer;
+        }
+    }
     private PlayerInput input;
     private GridMovement movement;
 
