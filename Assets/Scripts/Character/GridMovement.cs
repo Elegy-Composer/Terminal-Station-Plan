@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 /// <summary>
 /// It is recommended that you try to implement move-related behaviour with <see cref="BeforeMoveEvent"/> and <see cref="MoveFinishedEvent"/> first, and change <see cref="GridMovement"/> only when those two can't satisfy your need.
@@ -8,12 +9,20 @@ public class GridMovement : MonoBehaviour
 {
     public float xUnit = 1f;
     public float yUnit = 0.37f;
+    public Tilemap tilemap;
 
     public float stepDuration = 0.5f;
     private float stepStopAccumulated = 0f;
 
     private Vector2 movement = Vector2.zero;
     private Vector3 lastTarget;
+    public Vector3Int lastTargetToCell
+    {
+        get
+        {
+            return tilemap.WorldToCell(lastTarget);
+        }
+    }
 
     /// <summary>
     /// The delegate type of the <see cref="BeforeMoveEvent"/>.

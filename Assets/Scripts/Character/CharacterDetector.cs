@@ -16,7 +16,7 @@ public class CharacterDetector : MonoBehaviour
     {
         Vector3 destination = gameObject.transform.position + direction.ExtendToVector3();
         Vector3Int destCell = tilemap.WorldToCell(destination);
-        Vector3Int otherCharacterCell = tilemap.WorldToCell(otherCharacter.transform.position);
+        Vector3Int otherCharacterCell = otherCharacter.GetComponent<GridMovement>().lastTargetToCell;
 
         if (destCell == otherCharacterCell)
         {
