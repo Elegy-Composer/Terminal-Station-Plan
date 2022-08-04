@@ -14,11 +14,11 @@ public class CharacterDetector : MonoBehaviour
 
     private void BeforeMove(Action abortMovement, Vector2 direction)
     {
-        Vector3 distination = gameObject.transform.position + direction.ExtendToVector3();
-        Vector3Int distCell = tilemap.WorldToCell(distination);
+        Vector3 destination = gameObject.transform.position + direction.ExtendToVector3();
+        Vector3Int destCell = tilemap.WorldToCell(destination);
         Vector3Int otherCharacterCell = tilemap.WorldToCell(otherCharacter.transform.position);
 
-        if (distCell == otherCharacterCell)
+        if (destCell == otherCharacterCell)
         {
             abortMovement();
         }
