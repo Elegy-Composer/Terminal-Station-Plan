@@ -56,7 +56,7 @@ public class GridMovement : MonoBehaviour
     private bool moving = false;
 
 
-    void Start()
+    void Awake()
     {
         lastTarget = gameObject.transform.position;
     }
