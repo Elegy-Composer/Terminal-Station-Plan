@@ -51,3 +51,9 @@ TagManager:
   - name: MapObject
     uniqueID: 3377569821
     locked: 0
+  - name: Raised
+    uniqueID: 3033242091
+    locked: 0
+  - name: Collider(debugging)
+    uniqueID: 2694931611
+    locked: 0
