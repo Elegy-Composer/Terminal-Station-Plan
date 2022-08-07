@@ -28,7 +28,7 @@ public class CharacterInputManager : MonoBehaviour
             if (gameObject.name.Contains("2P"))
             {
                 input.SwitchCurrentActionMap("1PGridMovement");
-                movement.enabled = false;
+                movement.acceptingInput = false;
             }
         }
     }
@@ -36,6 +36,6 @@ public class CharacterInputManager : MonoBehaviour
     public void OnSwitch()
     {
         if (!isSinglePlayer) return;
-        movement.enabled = !movement.enabled;
+        movement.acceptingInput = !movement.acceptingInput;
     }
 }
