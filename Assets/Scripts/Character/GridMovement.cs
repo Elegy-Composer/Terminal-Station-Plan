@@ -55,10 +55,12 @@ public class GridMovement : MonoBehaviour
     public event MoveFinished MoveFinishedEvent;
     private bool moving = false;
 
+    private Animator spriteRotate;
 
     void Awake()
     {
         lastTarget = gameObject.transform.position;
+        spriteRotate = GetComponentInChildren<Animator>();
     }
 
     private void FixedUpdate()
@@ -100,6 +102,19 @@ public class GridMovement : MonoBehaviour
     private Action currentAction = Action.NONE;
     private enum Action { NONE, UP, RIGHT, LEFT, DOWN };
 
+    private void OnEnable()
+    {
+        switch (currentAction)
+        {
+            case Action.UP:
+            case Action.RIGHT:
+            case Action.LEFT:
+            case Action.DOWN:
+                spriteRotate.Play(currentAction.ToString());
+                break;
+        }
+    }
+
     public void OnUp(InputValue value)
     {
         Debug.Log("Up");
@@ -128,6 +143,10 @@ public class GridMovement : MonoBehaviour
     {
         if (isPressed)
         {
+            if (enabled)
+            {
+                spriteRotate.Play(action.ToString());
+            }
             setMovement(action, x, y);
         }
         else
