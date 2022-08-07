@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1798,6 +1798,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1186764588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5011329990471856863, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1303590854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1186764591
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186764588}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ce2613b8f4144bf4ba46b2a1a647395, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1256660026
 GameObject:
   m_ObjectHideFlags: 0
@@ -4285,6 +4311,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af094f3f6be984d9d9c6cd214c515c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1729040699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5011329990471856863, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1707362408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1729040702
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729040699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0f333b28e8de545e4aeb6ff7a08bf5fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1751928564
 GameObject:
   m_ObjectHideFlags: 0

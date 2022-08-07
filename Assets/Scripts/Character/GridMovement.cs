@@ -55,10 +55,12 @@ public class GridMovement : MonoBehaviour
     public event MoveFinished MoveFinishedEvent;
     private bool moving = false;
 
+    private Animator spriteRotate;
 
     void Awake()
     {
         lastTarget = gameObject.transform.position;
+        spriteRotate = GetComponentInChildren<Animator>();
     }
 
     private void FixedUpdate()
@@ -126,6 +128,10 @@ public class GridMovement : MonoBehaviour
 
     private void changeMovement(Action action, bool isPressed, float x, float y)
     {
+        if (enabled)
+        {
+            spriteRotate.Play(action.ToString());
+        }
         if (isPressed)
         {
             setMovement(action, x, y);
