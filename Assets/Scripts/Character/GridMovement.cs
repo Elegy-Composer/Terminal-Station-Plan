@@ -128,12 +128,12 @@ public class GridMovement : MonoBehaviour
 
     private void changeMovement(Action action, bool isPressed, float x, float y)
     {
-        if (enabled)
-        {
-            spriteRotate.Play(action.ToString());
-        }
         if (isPressed)
         {
+            if (enabled)
+            {
+                spriteRotate.Play(action.ToString());
+            }
             setMovement(action, x, y);
         }
         else
