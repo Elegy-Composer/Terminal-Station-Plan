@@ -102,6 +102,19 @@ public class GridMovement : MonoBehaviour
     private Action currentAction = Action.NONE;
     private enum Action { NONE, UP, RIGHT, LEFT, DOWN };
 
+    private void OnEnable()
+    {
+        switch (currentAction)
+        {
+            case Action.UP:
+            case Action.RIGHT:
+            case Action.LEFT:
+            case Action.DOWN:
+                spriteRotate.Play(currentAction.ToString());
+                break;
+        }
+    }
+
     public void OnUp(InputValue value)
     {
         Debug.Log("Up");
