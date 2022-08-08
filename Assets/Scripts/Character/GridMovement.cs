@@ -115,26 +115,46 @@ public class GridMovement : MonoBehaviour
         }
     }
 
+    private bool _acceptingInput = true;
+    public bool acceptingInput
+    {
+        get => _acceptingInput;
+        set
+        {
+            if (!value)
+            {
+                //force stop
+                currentAction = Action.NONE;
+                movement = Vector2.zero;
+            }
+            _acceptingInput = value;
+        }
+    }
+
     public void OnUp(InputValue value)
     {
+        if (!acceptingInput) return;
         Debug.Log("Up");
         changeMovement(Action.UP, value.isPressed, 0.5f, 0.5f);
     }
 
     public void OnRight(InputValue value)
     {
+        if (!acceptingInput) return;
         Debug.Log("Right");
         changeMovement(Action.RIGHT, value.isPressed, 0.5f, -0.5f);
     }
 
     public void OnLeft(InputValue value)
     {
+        if (!acceptingInput) return;
         Debug.Log("Left");
         changeMovement(Action.LEFT, value.isPressed, -0.5f, 0.5f);
     }
 
     public void OnDown(InputValue value)
     {
+        if (!acceptingInput) return;
         Debug.Log("Down");
         changeMovement(Action.DOWN, value.isPressed, -0.5f, -0.5f);
     }
