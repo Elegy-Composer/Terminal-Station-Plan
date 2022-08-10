@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class HeightChangeTest : MonoBehaviour
 {
-    [TextArea]
-    public string description;
     public Transform target;
 
     [Tooltip("Check this to start test, uncheck this to stop the target")]
