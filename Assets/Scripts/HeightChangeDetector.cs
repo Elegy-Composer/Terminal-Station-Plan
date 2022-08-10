@@ -9,6 +9,7 @@ public class HeightChangeDetector : MonoBehaviour
         Debug.Log("something enter");
         collision.GetComponent<SpriteManager>()?.OnHeightChangeStart(transform.position.y);
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("something leave");
