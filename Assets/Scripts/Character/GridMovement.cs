@@ -63,6 +63,11 @@ public class GridMovement : MonoBehaviour
         spriteRotate = GetComponentInChildren<Animator>();
     }
 
+    public void UpdateTarget()
+    {
+        lastTarget = gameObject.transform.position;
+    }
+
     private void FixedUpdate()
     {
         if (Vector3.Distance(gameObject.transform.position, lastTarget) == 0f)
