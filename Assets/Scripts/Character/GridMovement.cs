@@ -41,7 +41,7 @@ public class GridMovement : MonoBehaviour
     /// You may calculate the destination by extending it to Vector3 and adding the ruselt to current GameObject's position.
     /// See example in <see cref="CharacterDetector"/>.
     /// </param>
-    public delegate void BeforeMove(System.Action abortMovement, Vector2 direction);
+    public delegate void BeforeMove(System.Action abortMovement, ref Vector2 direction);
 
     /// <summary>
     /// The event that will invoke before moving.
@@ -84,10 +84,10 @@ public class GridMovement : MonoBehaviour
                 stepStopAccumulated = 0f;
                 if (movement != Vector2.zero)
                 {
-                    Vector3 move = movement.ExtendToVector3();
                     bool canMove = true;
-                    BeforeMoveEvent?.Invoke(() => canMove = false, movement);
+                    BeforeMoveEvent?.Invoke(() => canMove = false, ref movement);
 
+                    Vector3 move = movement.ExtendToVector3();
                     if (canMove)
                     {
                         lastTarget = gameObject.transform.position + move;

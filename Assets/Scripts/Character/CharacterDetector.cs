@@ -12,7 +12,7 @@ public class CharacterDetector : MonoBehaviour
         GetComponent<GridMovement>().BeforeMoveEvent += BeforeMove;
     }
 
-    private void BeforeMove(Action abortMovement, Vector2 direction)
+    private void BeforeMove(Action abortMovement, ref Vector2 direction)
     {
         Vector3 destination = gameObject.transform.position + direction.ExtendToVector3();
         Vector3Int destCell = tilemap.WorldToCell(destination);
