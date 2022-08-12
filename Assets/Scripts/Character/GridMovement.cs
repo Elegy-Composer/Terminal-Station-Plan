@@ -15,7 +15,7 @@ public class GridMovement : MonoBehaviour
     private float stepStopAccumulated = 0f;
 
     private Vector2 movement = Vector2.zero;
-    private Vector3 lastTarget;
+    public Vector3 lastTarget;
     public Vector3Int lastTargetToCell
     {
         get
@@ -168,7 +168,7 @@ public class GridMovement : MonoBehaviour
     {
         if (isPressed)
         {
-            if (enabled)
+            if (acceptingInput)
             {
                 spriteRotate.Play(action.ToString());
             }
