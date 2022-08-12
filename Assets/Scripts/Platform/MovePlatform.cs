@@ -9,7 +9,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
     public float yUnit = 0.3402062f;
     public Tilemap tilemap;
     private GameObject character;
-    private Vector3 originWorld, targetWorld;
+    private Vector3 originWorld, targetWorld, movePosition;
     private bool moving = false;
 
     public float VerticalOffset => 0.0555f;
@@ -35,9 +35,9 @@ public class MovePlatform : MonoBehaviour, IMapOffset
         }
     }
 
-    IEnumerator MoveToTarget()
+    /*IEnumerator MoveToTarget()
     {
-        yield return new WaitForSeconds(5f);
+        //yield return new WaitForSeconds(5f);
         moving = true;
         while (Vector3.Distance(gameObject.transform.position, targetWorld) != 0f)
         {
@@ -78,13 +78,61 @@ public class MovePlatform : MonoBehaviour, IMapOffset
             character.GetComponent<GridMovement>().enabled = true;
         }
         moving = false;
+    }*/
+
+    IEnumerator TestMoving()
+    {
+        yield return new WaitForSeconds(5f);
+        ActivatePlatform();
+        yield return new WaitForSeconds(5f);
+        DeactivatePlatform();
     }
 
     void Start()
     {
         originWorld = gameObject.transform.parent.Find("Origin").gameObject.transform.position;
         targetWorld = gameObject.transform.parent.Find("Target").gameObject.transform.position;
-        StartCoroutine(MoveToTarget());
+        movePosition = originWorld;
+        //StartCoroutine(TestMoving());
+    }
+
+    void ActivatePlatform()
+    {
+        movePosition = targetWorld;
+    }
+
+    void DeactivatePlatform()
+    {
+        movePosition = originWorld;
+    }
+
+    void Update()
+    {
+        if (Vector3.Distance(gameObject.transform.position, movePosition) == 0f)
+        {
+            if (moving)
+            {
+                moving = false;
+                if (character != null)
+                {
+                    character.GetComponent<GridMovement>().UpdateTarget();
+                    character.GetComponent<GridMovement>().enabled = true;
+                }
+                //Debug.Log("MOVING STOP!!");
+            }
+
+        }
+        else
+        {
+            moving = true;
+            Vector3 movement = Vector3.MoveTowards(gameObject.transform.position, movePosition, .01f) - gameObject.transform.position;
+            gameObject.transform.position += movement;
+            if (character != null)
+            {
+                character.GetComponent<GridMovement>().enabled = false;
+                character.transform.position += movement;
+            }
+        }
     }
 
 }
