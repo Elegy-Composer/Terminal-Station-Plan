@@ -1105,7 +1105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113714081}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.09, y: -0.12, z: 0}
+  m_LocalPosition: {x: 0.549, y: 2.352, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1823,8 +1823,10 @@ GameObject:
   m_Component:
   - component: {fileID: 347797267}
   - component: {fileID: 347797268}
+  - component: {fileID: 347797269}
+  - component: {fileID: 347797270}
   m_Layer: 0
-  m_Name: AccessButton
+  m_Name: RemovalButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1897,6 +1899,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &347797269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347797266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a915e45b4e73f45affa5af5c8df363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetsToRemove:
+  - {fileID: 754271088}
+  - {fileID: 1432444125}
+  RemoveMethod: 0
+--- !u!68 &347797270
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347797266}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.39043432, y: 0.09432733}
+  - {x: 0.39499977, y: 0.090889335}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &350573208
 GameObject:
   m_ObjectHideFlags: 0
@@ -4447,8 +4487,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953781272}
   m_Enabled: 1
-  m_SortingLayerID: -917397475
-  m_SortingLayer: 3
+  m_SortingLayerID: -1261725205
+  m_SortingLayer: 4
   m_SortingOrder: 0
 --- !u!1 &972823817
 GameObject:
@@ -4510,8 +4550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98871bb003c04c742b51a1ce59df9373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Remember to disable the GridMovement component on the Target before
-    you start the test, since it will affect the velocity you typed in below.
   target: {fileID: 113714082}
   StartTest: 0
   velocity: 0.05
@@ -5733,6 +5771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2030142238}
   - component: {fileID: 2030142239}
+  - component: {fileID: 2030142240}
   m_Layer: 0
   m_Name: Objective
   m_TagString: Untagged
@@ -5807,6 +5846,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &2030142240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030142237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9c513f4949d6844966b202e83dca64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2074602381
 GameObject:
   m_ObjectHideFlags: 0
