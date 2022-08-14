@@ -7,7 +7,9 @@ public class LightCircle : MonoBehaviour
     private Animator[] animators;
     [Header("please ensure that only one active gameobject between Collider1 and Collider2")]
     public GameObject Collider1;
+    private bool collider1Active;
     public GameObject Collider2;
+    private bool collider2Actice;
     private int _characterWithin = 0;
     private int characterWithIn 
     {
@@ -67,7 +69,9 @@ public class LightCircle : MonoBehaviour
     /// </summary>
     public void DisableLightCircle() 
     {
+        collider1Active = Collider1.activeInHierarchy;
         Collider1.SetActive(false);
+        collider2Actice = Collider2.activeInHierarchy;
         Collider2.SetActive(false);
     }
     /// <summary>
@@ -75,8 +79,8 @@ public class LightCircle : MonoBehaviour
     /// </summary>
     public void EnableLightCircle()
     {
-        Collider1.SetActive(true);
-        Collider2.SetActive(true);
+        Collider1.SetActive(collider1Active);
+        Collider2.SetActive(collider2Actice);
     }
     /// <summary>
     /// call this method whenever platform finish its route, e.g.A->B, B->A
