@@ -19,6 +19,7 @@ public class TempBackpack : MonoBehaviour
         if (!_itemsIDList.Contains(id))
         {
             _itemsIDList.Add(id);
+            Notification.Instance.ShowMessage("You got something super important!!!");
         }
     }
 }

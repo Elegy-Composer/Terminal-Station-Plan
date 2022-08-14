@@ -19,7 +19,8 @@ public class CheckItemTile : MonoBehaviour, IInteractable
                 return;
             }
         }
-        Debug.Log("congradulation");
+        Notification.Instance.ShowMessage("Congradulations!");
+        Destroy(this);
     }
     public bool CheckInteractionEnd()
     {

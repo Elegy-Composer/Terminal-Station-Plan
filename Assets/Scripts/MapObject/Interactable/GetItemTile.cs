@@ -9,6 +9,8 @@ public class GetItemTile : MonoBehaviour, IInteractable
     [SerializeField]
     private List<int> ItemsIDList; //may change this to dictionary or struct to handle multiple same item
     private GameObject characterStepOn;
+    public SpriteRenderer ItemSprite;
+
 
     public void Interact()
     {
@@ -18,6 +20,7 @@ public class GetItemTile : MonoBehaviour, IInteractable
         {
             bp.AddItem(itemID);
         }
+        ItemSprite.enabled = false;
         Destroy(this);
     }
 
