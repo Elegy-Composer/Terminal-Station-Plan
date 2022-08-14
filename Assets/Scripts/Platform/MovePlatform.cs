@@ -14,15 +14,30 @@ public class MovePlatform : MonoBehaviour, IMapOffset
 
     public float VerticalOffset => 0.0555f;
     public float HorizontalOffset => 0f;
+    private bool Raised
+    {
+        get
+        {
+            return !moving && (movePosition == targetWorld);
+        }
+    }
 
     // Update is called once per frame
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("enter");
         if (!moving)
         {
             character = collision.gameObject;
-            Debug.Log("enter");
+            if (!Raised)
+            {
+                //character.GetComponent<GridMovement>().enabled = false;
+                //character.transform.position += ;
+                character.GetComponent<GridMovement>().UpdateTargetBy(new Vector3(HorizontalOffset, VerticalOffset));
+                //character.GetComponent<GridMovement>().enabled = true;
+                Debug.Log("lift character up");
+            }
         }
     }
 
@@ -30,9 +45,17 @@ public class MovePlatform : MonoBehaviour, IMapOffset
     {
         if (!moving)
         {
+            if (!Raised)
+            {
+                //character.GetComponent<GridMovement>().enabled = false;
+                //character.transform.position -= new Vector3(HorizontalOffset, VerticalOffset);
+                character.GetComponent<GridMovement>().UpdateTargetBy(new Vector3(-HorizontalOffset, -VerticalOffset));
+                //character.GetComponent<GridMovement>().enabled = true;
+                Debug.Log("put character down");
+            }
             character = null;
-            Debug.Log("leave");
         }
+        Debug.Log("leave");
     }
 
     /*IEnumerator MoveToTarget()
@@ -93,7 +116,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
         originWorld = gameObject.transform.parent.Find("Origin").gameObject.transform.position;
         targetWorld = gameObject.transform.parent.Find("Target").gameObject.transform.position;
         movePosition = originWorld;
-        //StartCoroutine(TestMoving());
+        StartCoroutine(TestMoving());
     }
 
     void ActivatePlatform()
@@ -115,7 +138,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
                 moving = false;
                 if (character != null)
                 {
-                    character.GetComponent<GridMovement>().UpdateTarget();
+                    //character.GetComponent<GridMovement>().UpdateTarget(character.transform.position);
                     character.GetComponent<GridMovement>().enabled = true;
                 }
                 //Debug.Log("MOVING STOP!!");
@@ -131,6 +154,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
             {
                 character.GetComponent<GridMovement>().enabled = false;
                 character.transform.position += movement;
+                character.GetComponent<GridMovement>().UpdateTargetBy(movement);
             }
         }
     }

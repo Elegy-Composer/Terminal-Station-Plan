@@ -15,7 +15,7 @@ public class GridMovement : MonoBehaviour
     private float stepStopAccumulated = 0f;
 
     private Vector2 movement = Vector2.zero;
-    public Vector3 lastTarget;
+    private Vector3 lastTarget;
     public Vector3Int lastTargetToCell
     {
         get
@@ -66,6 +66,17 @@ public class GridMovement : MonoBehaviour
     public void UpdateTarget()
     {
         lastTarget = gameObject.transform.position;
+    }
+
+
+    public void UpdateTarget(Vector3 target)
+    {
+        lastTarget = target;
+    }
+
+    public void UpdateTargetBy(Vector3 offset)
+    {
+        lastTarget += offset;
     }
 
     private void FixedUpdate()
