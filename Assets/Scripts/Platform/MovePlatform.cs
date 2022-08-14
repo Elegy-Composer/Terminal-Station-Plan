@@ -11,6 +11,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
     private GameObject character;
     private Vector3 originWorld, targetWorld, movePosition;
     private bool moving = false;
+    private int activationCounter = 0;
 
     public float VerticalOffset => 0.0555f;
     public float HorizontalOffset => 0f;
@@ -116,17 +117,19 @@ public class MovePlatform : MonoBehaviour, IMapOffset
         originWorld = gameObject.transform.parent.Find("Origin").gameObject.transform.position;
         targetWorld = gameObject.transform.parent.Find("Target").gameObject.transform.position;
         movePosition = originWorld;
-        StartCoroutine(TestMoving());
+        //StartCoroutine(TestMoving());
     }
 
-    void ActivatePlatform()
+    internal void ActivatePlatform()
     {
+        activationCounter++;
         movePosition = targetWorld;
     }
 
-    void DeactivatePlatform()
+    internal void DeactivatePlatform()
     {
-        movePosition = originWorld;
+        activationCounter--;
+        if (activationCounter == 0) movePosition = originWorld;
     }
 
     void Update()
