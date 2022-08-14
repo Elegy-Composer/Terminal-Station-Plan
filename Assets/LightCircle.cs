@@ -8,6 +8,20 @@ public class LightCircle : MonoBehaviour
     [Header("please ensure that only one active gameobject between Collider1 and Collider2")]
     public GameObject Collider1;
     public GameObject Collider2;
+    private int _characterWithin = 0;
+    private int characterWithIn 
+    {
+        get
+        {
+            return _characterWithin;
+        }
+        set
+        {
+            if (value == 0) Hide();
+            else Show();
+            _characterWithin = value;
+        }
+    }
 
     private void Awake()
     {
@@ -18,14 +32,14 @@ public class LightCircle : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<GridMovement>() != null)
         {
-            Show();
+            characterWithIn += 1;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<GridMovement>() != null)
         {
-            Hide();
+            characterWithIn -= 1;
         }
     }
 
