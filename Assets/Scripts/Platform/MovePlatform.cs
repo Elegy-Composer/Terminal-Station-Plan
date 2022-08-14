@@ -132,7 +132,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
         if (activationCounter == 0) movePosition = originWorld;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Vector3.Distance(gameObject.transform.position, movePosition) == 0f)
         {
