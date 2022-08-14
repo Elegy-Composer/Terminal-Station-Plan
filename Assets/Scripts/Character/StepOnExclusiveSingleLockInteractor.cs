@@ -28,7 +28,7 @@ public class StepOnExclusiveSingleLockInteractor : MonoBehaviour
         }
     }
 
-    private void preMovement(Action abortMovement, Vector2 vec)
+    private void preMovement(Action abortMovement, ref Vector2 vec)
     {
         if (isInteracting)
         {
