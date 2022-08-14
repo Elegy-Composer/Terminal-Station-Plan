@@ -9,6 +9,9 @@ public class CheckItemTile : MonoBehaviour, IInteractable
     [SerializeField]
     private List<int> ItemsNeeded;
     private GameObject characterStepOn;
+
+
+
     public void Interact()
     {
         TempBackpack bp = characterStepOn?.GetComponent<TempBackpack>();
@@ -22,11 +25,11 @@ public class CheckItemTile : MonoBehaviour, IInteractable
         Notification.Instance.ShowMessage("Congradulations!");
         Destroy(this);
     }
+
     public bool CheckInteractionEnd()
     {
         return true;
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

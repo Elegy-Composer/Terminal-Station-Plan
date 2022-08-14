@@ -32,6 +32,7 @@ public class Notification : MonoBehaviour
         Visual.SetActive(true);
         Animator.Play("Notification_Pop_Out");
     }
+
     public void CloseNotification()
     {
         Animator.Play("Notification_Pop_Back");
@@ -42,5 +43,4 @@ public class Notification : MonoBehaviour
         yield return new WaitForSeconds(closeAnimation.length);
         Visual.SetActive(false);
     }
-
 }
