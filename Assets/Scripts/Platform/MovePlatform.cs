@@ -143,6 +143,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
                 {
                     //character.GetComponent<GridMovement>().UpdateTarget(character.transform.position);
                     character.GetComponent<GridMovement>().enabled = true;
+                    character.GetComponent<PointFollower>().enabled = true;
                 }
                 //Debug.Log("MOVING STOP!!");
             }
@@ -156,6 +157,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
             if (character != null)
             {
                 character.GetComponent<PointFollower>().enabled = false;
+                character.GetComponent<GridMovement>().enabled = false;
                 character.transform.position += movement;
                 character.GetComponent<PointFollower>().UpdateTargetBy(movement);
             }
