@@ -35,7 +35,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
             {
                 //character.GetComponent<GridMovement>().enabled = false;
                 //character.transform.position += ;
-                character.GetComponent<GridMovement>().UpdateTargetBy(new Vector3(HorizontalOffset, VerticalOffset));
+                character.GetComponent<PointFollower>().UpdateTargetBy(new Vector3(HorizontalOffset, VerticalOffset));
                 //character.GetComponent<GridMovement>().enabled = true;
                 Debug.Log("lift character up");
             }
@@ -50,7 +50,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
             {
                 //character.GetComponent<GridMovement>().enabled = false;
                 //character.transform.position -= new Vector3(HorizontalOffset, VerticalOffset);
-                character.GetComponent<GridMovement>().UpdateTargetBy(new Vector3(-HorizontalOffset, -VerticalOffset));
+                character.GetComponent<PointFollower>().UpdateTargetBy(new Vector3(-HorizontalOffset, -VerticalOffset));
                 //character.GetComponent<GridMovement>().enabled = true;
                 Debug.Log("put character down");
             }
@@ -143,6 +143,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
                 {
                     //character.GetComponent<GridMovement>().UpdateTarget(character.transform.position);
                     character.GetComponent<GridMovement>().enabled = true;
+                    character.GetComponent<PointFollower>().enabled = true;
                 }
                 //Debug.Log("MOVING STOP!!");
             }
@@ -155,9 +156,10 @@ public class MovePlatform : MonoBehaviour, IMapOffset
             gameObject.transform.position += movement;
             if (character != null)
             {
+                character.GetComponent<PointFollower>().enabled = false;
                 character.GetComponent<GridMovement>().enabled = false;
                 character.transform.position += movement;
-                character.GetComponent<GridMovement>().UpdateTargetBy(movement);
+                character.GetComponent<PointFollower>().UpdateTargetBy(movement);
             }
         }
     }
