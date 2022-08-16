@@ -9,20 +9,12 @@ public class GridMovement : MonoBehaviour
 {
     public float xUnit = 1f;
     public float yUnit = 0.37f;
-    public Tilemap tilemap;
 
     public float stepDuration = 0.5f;
     private float stepStopAccumulated = 0f;
+    private bool accumulating = true;
 
     private Vector2 movement = Vector2.zero;
-    private Vector3 lastTarget;
-    public Vector3Int lastTargetToCell
-    {
-        get
-        {
-            return tilemap.WorldToCell(lastTarget);
-        }
-    }
 
     /// <summary>
     /// The delegate type of the <see cref="BeforeMoveEvent"/>.
@@ -53,42 +45,26 @@ public class GridMovement : MonoBehaviour
     /// The event that will invoke after moving to the destination
     /// </summary>
     public event MoveFinished MoveFinishedEvent;
-    private bool moving = false;
 
     private Animator spriteRotate;
+    private PointFollower pointFollower;
+
 
     void Awake()
     {
-        lastTarget = gameObject.transform.position;
         spriteRotate = GetComponentInChildren<Animator>();
-    }
-
-    public void UpdateTarget()
-    {
-        lastTarget = gameObject.transform.position;
-    }
-
-
-    public void UpdateTarget(Vector3 target)
-    {
-        lastTarget = target;
-    }
-
-    public void UpdateTargetBy(Vector3 offset)
-    {
-        lastTarget += offset;
+        pointFollower = GetComponent<PointFollower>();
+        pointFollower.onReachTargetEvent += () =>
+        {
+            MoveFinishedEvent?.Invoke();
+            accumulating = true;
+        };
     }
 
     private void FixedUpdate()
     {
-        if (Vector3.Distance(gameObject.transform.position, lastTarget) == 0f)
+        if (accumulating)
         {
-            //on target
-            if (moving)
-            {
-                MoveFinishedEvent?.Invoke();
-                moving = false;
-            }
             stepStopAccumulated += Time.fixedDeltaTime;
             if (stepStopAccumulated > stepDuration)
             {
@@ -101,16 +77,10 @@ public class GridMovement : MonoBehaviour
                     Vector3 move = movement.ExtendToVector3();
                     if (canMove)
                     {
-                        lastTarget = gameObject.transform.position + move;
+                        pointFollower.UpdateTarget(gameObject.transform.position + move);
                     }
                 }
             }
-        }
-        else
-        {
-            //moving
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, lastTarget, .1f);
-            moving = true;
         }
     }
 
