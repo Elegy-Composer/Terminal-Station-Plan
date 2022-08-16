@@ -78,6 +78,7 @@ public class GridMovement : MonoBehaviour
                     if (canMove)
                     {
                         pointFollower.UpdateTarget(gameObject.transform.position + move);
+                        accumulating = false;
                     }
                 }
             }
