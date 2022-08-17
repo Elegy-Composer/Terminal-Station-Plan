@@ -10,7 +10,8 @@ using MapObject.Interactable;
 
 public class StepOnExclusiveSingleLockInteractor : MonoBehaviour
 {
-    private const int interactableLayer = 10;
+    [SerializeField]
+    private LayerMask interactableLayer;
 
     public StepOnExclusiveSingleLockInteractor otherInteractor;
     private IInteractable interactTargetObject;
@@ -43,7 +44,7 @@ public class StepOnExclusiveSingleLockInteractor : MonoBehaviour
         }
 
         // offset the raycast origin a little bit, so we won't interact with the block below us again
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(vec.x * 0.5f, vec.y * 0.5f, 0), vec, 0.5f, 1 << interactableLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(vec.x * 0.5f, vec.y * 0.5f, 0), vec, 0.5f, interactableLayer);
 
         // If it hits something...
         if (hit.collider != null)
