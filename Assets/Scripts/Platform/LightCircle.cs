@@ -9,7 +9,7 @@ public class LightCircle : MonoBehaviour
     public GameObject Collider1;
     private bool collider1Active;
     public GameObject Collider2;
-    private bool collider2Actice;
+    private bool collider2Active;
     private int _characterWithin = 0;
     private int characterWithIn 
     {
@@ -71,7 +71,7 @@ public class LightCircle : MonoBehaviour
     {
         collider1Active = Collider1.activeInHierarchy;
         Collider1.SetActive(false);
-        collider2Actice = Collider2.activeInHierarchy;
+        collider2Active = Collider2.activeInHierarchy;
         Collider2.SetActive(false);
     }
     /// <summary>
@@ -80,7 +80,7 @@ public class LightCircle : MonoBehaviour
     public void EnableLightCircle()
     {
         Collider1.SetActive(collider1Active);
-        Collider2.SetActive(collider2Actice);
+        Collider2.SetActive(collider2Active);
     }
     /// <summary>
     /// call this method whenever platform finish its route, e.g.A->B, B->A
