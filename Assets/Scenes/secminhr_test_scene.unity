@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -139,9 +139,9 @@ GameObject:
   - component: {fileID: 109615040}
   - component: {fileID: 109615039}
   - component: {fileID: 109615038}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2099,7 +2099,7 @@ GameObject:
   - component: {fileID: 553443921}
   - component: {fileID: 553443923}
   - component: {fileID: 553443922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ActivatePlatform_green_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2258,7 +2258,7 @@ GameObject:
   - component: {fileID: 703492823}
   - component: {fileID: 703492824}
   - component: {fileID: 703492825}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2588,7 +2588,7 @@ GameObject:
   - component: {fileID: 798842463}
   - component: {fileID: 798842465}
   - component: {fileID: 798842464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ActivatePlatform_green_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3073,6 +3073,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character1P
       objectReference: {fileID: 0}
+    - target: {fileID: 5011329989442193574, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5011329989442193584, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
         type: 3}
       propertyPath: tilemap
@@ -3158,6 +3163,16 @@ PrefabInstance:
       propertyPath: otherInteractor
       value: 
       objectReference: {fileID: 1707362413}
+    - target: {fileID: 5011329989442193596, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
+        type: 3}
+      propertyPath: interactableLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011329989442193599, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
+        type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 5011329990471856849, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
         type: 3}
       propertyPath: m_Size.x
@@ -3237,9 +3252,9 @@ GameObject:
   - component: {fileID: 1326444435}
   - component: {fileID: 1326444434}
   - component: {fileID: 1326444436}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pole2
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5253,6 +5268,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character2P
       objectReference: {fileID: 0}
+    - target: {fileID: 5011329989442193574, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5011329989442193584, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
         type: 3}
       propertyPath: tilemap
@@ -5338,10 +5358,20 @@ PrefabInstance:
       propertyPath: otherInteractor
       value: 
       objectReference: {fileID: 785212922}
+    - target: {fileID: 5011329989442193596, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
+        type: 3}
+      propertyPath: interactableLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 5011329989442193597, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
         type: 3}
       propertyPath: m_DefaultActionMap
       value: 9b729fff-b789-4f26-a115-a2cae43e047c
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011329989442193599, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
+        type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 5011329990471856849, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
         type: 3}
@@ -6186,9 +6216,9 @@ GameObject:
   - component: {fileID: 1849268498}
   - component: {fileID: 1849268497}
   - component: {fileID: 1849268499}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pole1
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
