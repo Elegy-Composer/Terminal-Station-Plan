@@ -37,4 +37,7 @@ public class ButtonOffsetTile : OffsetTile
             IsAligned = true;
         }
     }
+    public override void AfterLeave()
+    {
+    }
 }

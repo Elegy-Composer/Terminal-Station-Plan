@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(Collider2D))]
 public abstract class OffsetTile : MonoBehaviour
 {
     public bool IsAligned = false;
@@ -29,6 +29,7 @@ public abstract class OffsetTile : MonoBehaviour
         if (!PlayerStepOn(collision)) return;
 
         OffsetOnLeave();
+        AfterLeave();
         characterStepOn = null;
     }
 
@@ -39,5 +40,6 @@ public abstract class OffsetTile : MonoBehaviour
     public abstract void OffsetOnStep();
     public abstract void AfterStep();
     public abstract void OffsetOnLeave();
+    public abstract void AfterLeave();
 
 }
