@@ -9,7 +9,7 @@ public class LightCircle : MonoBehaviour
     public GameObject Collider1;
     private bool collider1Active;
     public GameObject Collider2;
-    private bool collider2Actice;
+    private bool collider2Active;
     private int _characterWithin = 0;
     private int characterWithIn 
     {
