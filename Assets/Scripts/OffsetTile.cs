@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class OffsetTile : MonoBehaviour
 {
     public bool IsAligned = false;
+
     [SerializeField]
     protected float VerticalOffset;
     [SerializeField]
@@ -41,5 +42,4 @@ public abstract class OffsetTile : MonoBehaviour
     public abstract void AfterStep();
     public abstract void OffsetOnLeave();
     public abstract void AfterLeave();
-
 }
