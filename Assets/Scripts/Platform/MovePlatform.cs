@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
     private Vector3 originWorld, targetWorld, movePosition;
     private bool moving = false;
     private int activationCounter = 0;
+    private SpriteRenderer rend;
 
     public float VerticalOffset => 0.0555f;
     public float HorizontalOffset => 0f;
@@ -116,6 +118,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
     {
         originWorld = gameObject.transform.parent.Find("Origin").gameObject.transform.position;
         targetWorld = gameObject.transform.parent.Find("Target").gameObject.transform.position;
+        rend = GetComponent<SpriteRenderer>();
         movePosition = originWorld;
         //StartCoroutine(TestMoving());
     }
@@ -147,7 +150,6 @@ public class MovePlatform : MonoBehaviour, IMapOffset
                 }
                 //Debug.Log("MOVING STOP!!");
             }
-
         }
         else
         {
@@ -161,7 +163,26 @@ public class MovePlatform : MonoBehaviour, IMapOffset
                 character.transform.position += movement;
                 character.GetComponent<PointFollower>().UpdateTargetBy(movement);
             }
+
+            CheckSorting();
         }
     }
 
+    private void CheckSorting()
+    {
+        if (activationCounter > 0)
+        {
+            if (Vector3.Distance(gameObject.transform.position, movePosition) < 0.15f)
+            {
+                rend.sortingLayerName = "Raised";
+            }
+        }
+        else
+        {
+            if (Vector3.Distance(gameObject.transform.position, movePosition) > 0.15f)
+            {
+                rend.sortingLayerName = "Platform";
+            }
+        }
+    }
 }
