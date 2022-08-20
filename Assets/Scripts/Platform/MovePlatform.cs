@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Tilemaps;
 
 public class MovePlatform : MonoBehaviour, IMapOffset
@@ -11,17 +12,25 @@ public class MovePlatform : MonoBehaviour, IMapOffset
     public Tilemap tilemap;
     private GameObject character;
     private Vector3 originWorld, targetWorld, movePosition;
-    private bool moving = false;
+    public bool moving = false;
     private int activationCounter = 0;
     private SpriteRenderer rend;
 
     public float VerticalOffset => 0.0555f;
     public float HorizontalOffset => 0f;
-    private bool Raised
+    public bool Raised
     {
         get
         {
             return !moving && (movePosition == targetWorld);
+        }
+    }
+
+    public bool IsStepped
+    {
+        get
+        {
+            return character != null;
         }
     }
 
@@ -30,6 +39,8 @@ public class MovePlatform : MonoBehaviour, IMapOffset
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("enter");
+        if (collision.gameObject.GetComponent<GridMovement>() == null)
+            return;
         if (!moving)
         {
             character = collision.gameObject;
@@ -46,6 +57,8 @@ public class MovePlatform : MonoBehaviour, IMapOffset
 
     void OnTriggerExit2D(Collider2D collision)
     {
+        if (character == null)
+            return;
         if (!moving)
         {
             if (!Raised)
@@ -60,51 +73,6 @@ public class MovePlatform : MonoBehaviour, IMapOffset
         }
         Debug.Log("leave");
     }
-
-    /*IEnumerator MoveToTarget()
-    {
-        //yield return new WaitForSeconds(5f);
-        moving = true;
-        while (Vector3.Distance(gameObject.transform.position, targetWorld) != 0f)
-        {
-            Vector3 movement = Vector3.MoveTowards(gameObject.transform.position, targetWorld, .01f) - gameObject.transform.position;
-            gameObject.transform.position += movement;
-            if (character != null)
-            {
-                character.GetComponent<GridMovement>().enabled = false;
-                character.transform.position += movement;
-            }
-            yield return null;
-        }
-        if(character != null)
-        {
-            character.GetComponent<GridMovement>().UpdateTarget();
-            character.GetComponent<GridMovement>().enabled = true;
-        }
-        moving = false;
-    }
-
-    IEnumerator MoveToOrigin()
-    {
-        moving = true;
-        while (Vector3.Distance(gameObject.transform.position, originWorld) != 0f)
-        {
-            Vector3 movement = Vector3.MoveTowards(gameObject.transform.position, originWorld, .01f) - gameObject.transform.position;
-            gameObject.transform.position += movement;
-            if (character != null)
-            {
-                character.GetComponent<GridMovement>().enabled = false;
-                character.transform.position += movement;
-            }
-            yield return null;
-        }
-        if (character != null)
-        {
-            character.GetComponent<GridMovement>().UpdateTarget();
-            character.GetComponent<GridMovement>().enabled = true;
-        }
-        moving = false;
-    }*/
 
     IEnumerator TestMoving()
     {
@@ -149,6 +117,11 @@ public class MovePlatform : MonoBehaviour, IMapOffset
                     character.GetComponent<PointFollower>().enabled = true;
                 }
                 //Debug.Log("MOVING STOP!!");
+                if (IsStepped && Raised)
+                {
+                    character.transform.Find("NormalPivot").GetComponent<SortingGroup>().sortingLayerName = "Raised";
+                    //character.GetComponentInChildren<SortingGroup>().sortingOrder = 0;
+                }
             }
         }
         else
@@ -156,12 +129,14 @@ public class MovePlatform : MonoBehaviour, IMapOffset
             moving = true;
             Vector3 movement = Vector3.MoveTowards(gameObject.transform.position, movePosition, .01f) - gameObject.transform.position;
             gameObject.transform.position += movement;
-            if (character != null)
+            if (IsStepped)
             {
                 character.GetComponent<PointFollower>().enabled = false;
                 character.GetComponent<GridMovement>().enabled = false;
                 character.transform.position += movement;
                 character.GetComponent<PointFollower>().UpdateTargetBy(movement);
+
+                character.transform.Find("NormalPivot").GetComponent<SortingGroup>().sortingLayerName = "MapObject";
             }
 
             CheckSorting();

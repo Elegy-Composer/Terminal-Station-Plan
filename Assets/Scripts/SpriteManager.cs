@@ -32,6 +32,7 @@ public class SpriteManager : MonoBehaviour
 
     public void OnHeightChangeStart(float yFixedPos)
     {
+        Debug.Log("height change start");
         SwitchToTransitionSprite();
         SaveLocalPosition();
         changingHeight = true;
@@ -40,6 +41,7 @@ public class SpriteManager : MonoBehaviour
 
     public void OnHeightChangeEnd()
     {
+        Debug.Log("height change end");
         SwitchToNormalSprite();
         ResumeLocalPosition();
         changingHeight = false;

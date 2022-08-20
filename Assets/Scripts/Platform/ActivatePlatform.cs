@@ -14,12 +14,14 @@ public class ActivatePlatform : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Enter ActivatePlatform: " + collision.gameObject.name);
-        platform.ActivatePlatform();
+        if (collision.gameObject.GetComponent<GridMovement>() != null)
+            platform.ActivatePlatform();
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("Leave ActivatePlatform: " + collision.gameObject.name);
-        platform.DeactivatePlatform();
+        if (collision.gameObject.GetComponent<GridMovement>() != null)
+            platform.DeactivatePlatform();
     }
 }
