@@ -13,6 +13,10 @@ public class SpriteManager : MonoBehaviour
     [SerializeField]
     private Transform transitionSpriteTransform;
     [SerializeField]
+    private Animator transitionAnimator;
+    [SerializeField]
+    private Animator normalAnimator;
+    [SerializeField]
     private Vector3 offsetWithTransitionSprite;
 
     private bool changingHeight = false;
@@ -32,6 +36,7 @@ public class SpriteManager : MonoBehaviour
 
     public void OnHeightChangeStart(float yFixedPos)
     {
+        Debug.Log("height change start");
         SwitchToTransitionSprite();
         SaveLocalPosition();
         changingHeight = true;
@@ -40,6 +45,7 @@ public class SpriteManager : MonoBehaviour
 
     public void OnHeightChangeEnd()
     {
+        Debug.Log("height change end");
         SwitchToNormalSprite();
         ResumeLocalPosition();
         changingHeight = false;
@@ -47,13 +53,16 @@ public class SpriteManager : MonoBehaviour
 
     private void SwitchToTransitionSprite()
     {
-        transitionSprite.sprite = normalSprite.sprite;
+        transitionAnimator.Play(GetComponentInParent<GridMovement>().Facing.ToString());
         transitionSprite.enabled = true;
+        GetComponentInParent<GridMovement>().SpriteRotate = transitionAnimator;
         normalSprite.enabled = false;
     }
     private void SwitchToNormalSprite()
     {
+        normalAnimator.Play(GetComponentInParent<GridMovement>().Facing.ToString());
         normalSprite.enabled = true;
+        GetComponentInParent<GridMovement>().SpriteRotate = normalAnimator;
         transitionSprite.enabled = false;
     }
 

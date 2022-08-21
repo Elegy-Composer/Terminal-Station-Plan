@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
@@ -46,13 +47,12 @@ public class GridMovement : MonoBehaviour
     /// </summary>
     public event MoveFinished MoveFinishedEvent;
 
-    private Animator spriteRotate;
+    public Animator SpriteRotate;
     private PointFollower pointFollower;
 
 
     void Awake()
     {
-        spriteRotate = GetComponentInChildren<Animator>();
         pointFollower = GetComponent<PointFollower>();
         pointFollower.onReachTargetEvent += () =>
         {
@@ -89,6 +89,27 @@ public class GridMovement : MonoBehaviour
     private Action currentAction = Action.NONE;
     private enum Action { NONE, UP, RIGHT, LEFT, DOWN };
 
+    public enum Direction { UP, RIGHT, LEFT, DOWN };
+    [SerializeField]
+    private Direction _facing;
+    public Direction Facing => _facing;
+
+    private Direction fromAction(Action action)
+    {
+        switch (action)
+        {
+            case Action.UP:
+                return Direction.UP;
+            case Action.RIGHT:
+                return Direction.RIGHT;
+            case Action.LEFT:
+                return Direction.LEFT;
+            case Action.DOWN:
+                return Direction.DOWN;
+        }
+        throw new ArgumentOutOfRangeException("can't transform Action.NONE to Direction");
+    }
+
     private void OnEnable()
     {
         switch (currentAction)
@@ -97,7 +118,7 @@ public class GridMovement : MonoBehaviour
             case Action.RIGHT:
             case Action.LEFT:
             case Action.DOWN:
-                spriteRotate.Play(currentAction.ToString());
+                SpriteRotate.Play(currentAction.ToString());
                 break;
         }
     }
@@ -152,7 +173,8 @@ public class GridMovement : MonoBehaviour
         {
             if (acceptingInput)
             {
-                spriteRotate.Play(action.ToString());
+                SpriteRotate.Play(action.ToString());
+                _facing = fromAction(action);
             }
             setMovement(action, x, y);
         }
