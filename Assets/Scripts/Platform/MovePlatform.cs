@@ -15,6 +15,8 @@ public class MovePlatform : MonoBehaviour, IMapOffset
     public bool moving = false;
     private int activationCounter = 0;
     private SpriteRenderer rend;
+    private LightCircle lightCircle;
+    private bool prevRaised = false;
 
     public float VerticalOffset => 0.0555f;
     public float HorizontalOffset => 0f;
@@ -88,6 +90,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
         targetWorld = gameObject.transform.parent.Find("Target").gameObject.transform.position;
         rend = GetComponent<SpriteRenderer>();
         movePosition = originWorld;
+        lightCircle = transform.parent.GetComponentInChildren<LightCircle>();
         //StartCoroutine(TestMoving());
     }
 
@@ -110,6 +113,13 @@ public class MovePlatform : MonoBehaviour, IMapOffset
             if (moving)
             {
                 moving = false;
+                lightCircle.EnableLightCircle();
+                if (prevRaised != Raised)
+                {
+                    lightCircle.SwitchCollider();
+                }
+                prevRaised = Raised;
+
                 if (character != null)
                 {
                     //character.GetComponent<GridMovement>().UpdateTarget(character.transform.position);
@@ -127,6 +137,10 @@ public class MovePlatform : MonoBehaviour, IMapOffset
         }
         else
         {
+            if (!moving) // start to move
+            {
+                lightCircle.DisableLightCircle();
+            }
             moving = true;
             Vector3 movement = Vector3.MoveTowards(gameObject.transform.position, movePosition, .01f) - gameObject.transform.position;
             gameObject.transform.position += movement;
