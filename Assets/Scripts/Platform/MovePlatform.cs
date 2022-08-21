@@ -59,7 +59,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (character == null)
+        if (collision.gameObject.GetComponent<GridMovement>() == null)
             return;
         if (!moving)
         {
