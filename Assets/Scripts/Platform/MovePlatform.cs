@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Tilemaps;
 
-public class MovePlatform : MonoBehaviour, IMapOffset
+public class MovePlatform : MonoBehaviour
 {
     public float xUnit = 1f;
     public float yUnit = 0.3402062f;
@@ -18,8 +18,8 @@ public class MovePlatform : MonoBehaviour, IMapOffset
     private LightCircle lightCircle;
     private bool prevRaised = false;
 
-    public float VerticalOffset => 0.0555f;
-    public float HorizontalOffset => 0f;
+    public float VerticalOffset;
+    public float HorizontalOffset;
     public bool Raised
     {
         get
@@ -162,7 +162,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
     {
         if (activationCounter > 0)
         {
-            if (Vector3.Distance(gameObject.transform.position, targetWorld) < 0.10f)
+            if (Vector3.Distance(gameObject.transform.position, targetWorld) < 0.065f)
             {
                 if (IsStepped)
                 {
@@ -174,7 +174,7 @@ public class MovePlatform : MonoBehaviour, IMapOffset
         }
         else
         {
-            if (Vector3.Distance(gameObject.transform.position, targetWorld) > 0.10f)
+            if (Vector3.Distance(gameObject.transform.position, targetWorld) > 0.065f)
             {
                 if (IsStepped)
                 {

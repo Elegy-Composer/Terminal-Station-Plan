@@ -36,7 +36,7 @@ public abstract class OffsetTile : MonoBehaviour
 
     private bool PlayerStepOn(Collider2D stepOn)
     {
-        return stepOn.gameObject.GetComponent<GridMovement>() != null;
+        return stepOn.gameObject.GetComponent<GridMovement>() != null && stepOn.gameObject.GetComponent<GridMovement>().enabled;
     }
     public abstract void OffsetOnStep();
     public abstract void AfterStep();

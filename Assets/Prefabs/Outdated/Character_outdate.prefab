@@ -14,12 +14,11 @@ GameObject:
   - component: {fileID: 5011329989442193594}
   - component: {fileID: 5011329989442193599}
   - component: {fileID: 5011329989442193596}
-  - component: {fileID: 781009976834996577}
   - component: {fileID: 5011329989442193598}
   - component: {fileID: 5011329989442193585}
   - component: {fileID: 5011329989442193584}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Character_outdate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xUnit: 1
   yUnit: 0.37
+  tilemap: {fileID: 0}
   stepDuration: 0.2
 --- !u!114 &5011329989442193599
 MonoBehaviour:
@@ -140,9 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f90f73a893c1e428f962b141fcd4bb27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &5011329989442193596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,25 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af094f3f6be984d9d9c6cd214c515c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  otherInteractor: {fileID: 0}
---- !u!114 &781009976834996577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5011329989442193574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b64ac922449503740a905da9fc71e443, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 2048
   otherInteractor: {fileID: 0}
 --- !u!114 &5011329989442193598
 MonoBehaviour:
