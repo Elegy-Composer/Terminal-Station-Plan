@@ -18,12 +18,12 @@ public class DummyNPC : MonoBehaviour, IInteractable
         interacting = true;
         Debug.Log("[NPC] RRRRRRRR");
         Notification.Instance.ShowMessage("RRRRRRRRR");
-        Invoke("EndConversation", 5);
+        Notification.Instance.NotificationClosedEvent += EndConversation;
     }
 
     private void EndConversation()
     {
         interacting = false;
-        Notification.Instance.CloseNotification();
+        Notification.Instance.NotificationClosedEvent -= EndConversation;
     }
 }

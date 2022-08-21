@@ -12,6 +12,12 @@ public class Notification : MonoBehaviour
 
     public static Notification Instance { get; private set; }
 
+    public delegate void NotificationClosed();
+    /// <summary>
+    /// The event that will invoke after moving to the destination
+    /// </summary>
+    public event NotificationClosed NotificationClosedEvent;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -42,5 +48,7 @@ public class Notification : MonoBehaviour
     {
         yield return new WaitForSeconds(closeAnimation.length);
         Visual.SetActive(false);
+
+        NotificationClosedEvent?.Invoke();
     }
 }
