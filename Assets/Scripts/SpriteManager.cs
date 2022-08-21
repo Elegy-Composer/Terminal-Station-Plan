@@ -13,6 +13,10 @@ public class SpriteManager : MonoBehaviour
     [SerializeField]
     private Transform transitionSpriteTransform;
     [SerializeField]
+    private Animator transitionAnimator;
+    [SerializeField]
+    private Animator normalAnimator;
+    [SerializeField]
     private Vector3 offsetWithTransitionSprite;
 
     private bool changingHeight = false;
@@ -51,11 +55,13 @@ public class SpriteManager : MonoBehaviour
     {
         transitionSprite.sprite = normalSprite.sprite;
         transitionSprite.enabled = true;
+        GetComponentInParent<GridMovement>().SpriteRotate = transitionAnimator;
         normalSprite.enabled = false;
     }
     private void SwitchToNormalSprite()
     {
         normalSprite.enabled = true;
+        GetComponentInParent<GridMovement>().SpriteRotate = normalAnimator;
         transitionSprite.enabled = false;
     }
 

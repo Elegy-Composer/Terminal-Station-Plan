@@ -2486,6 +2486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 225186828}
   - component: {fileID: 225186829}
+  - component: {fileID: 225186830}
   m_Layer: 0
   m_Name: TransitionSprite
   m_TagString: Untagged
@@ -2560,6 +2561,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &225186830
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225186827}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ce2613b8f4144bf4ba46b2a1a647395, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &230320590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2635,6 +2656,8 @@ MonoBehaviour:
   transitionSprite: {fileID: 225186829}
   movablePivot: {fileID: 145230970}
   transitionSpriteTransform: {fileID: 225186828}
+  transitionAnimator: {fileID: 225186830}
+  normalAnimator: {fileID: 1894065532}
   offsetWithTransitionSprite: {x: 0, y: 0.52, z: 0}
 --- !u!1 &258850249 stripped
 GameObject:
@@ -3992,6 +4015,8 @@ MonoBehaviour:
   transitionSprite: {fileID: 1811021803}
   movablePivot: {fileID: 199323629}
   transitionSpriteTransform: {fileID: 1811021802}
+  transitionAnimator: {fileID: 1811021804}
+  normalAnimator: {fileID: 1269008931}
   offsetWithTransitionSprite: {x: 0, y: 0.52, z: 0}
 --- !u!1 &751570946
 GameObject:
@@ -4956,6 +4981,7 @@ MonoBehaviour:
   xUnit: 1
   yUnit: 0.3402062
   stepDuration: 0.2
+  SpriteRotate: {fileID: 1894065532}
 --- !u!114 &1000565318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5482,7 +5508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6dd7f0b5c9fd4b1a9a029630356272d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singlePlayer: 1
+  singlePlayer: 0
 --- !u!4 &1256660028
 Transform:
   m_ObjectHideFlags: 0
@@ -7252,6 +7278,7 @@ MonoBehaviour:
   xUnit: 1
   yUnit: 0.3402062
   stepDuration: 0.2
+  SpriteRotate: {fileID: 1269008931}
 --- !u!114 &1655981776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8911,6 +8938,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1811021802}
   - component: {fileID: 1811021803}
+  - component: {fileID: 1811021804}
   m_Layer: 0
   m_Name: TransitionSprite
   m_TagString: Untagged
@@ -8985,6 +9013,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &1811021804
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811021801}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0f333b28e8de545e4aeb6ff7a08bf5fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1835482282
 GameObject:
   m_ObjectHideFlags: 0

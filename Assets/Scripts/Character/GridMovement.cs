@@ -46,13 +46,12 @@ public class GridMovement : MonoBehaviour
     /// </summary>
     public event MoveFinished MoveFinishedEvent;
 
-    private Animator spriteRotate;
+    public Animator SpriteRotate;
     private PointFollower pointFollower;
 
 
     void Awake()
     {
-        spriteRotate = GetComponentInChildren<Animator>();
         pointFollower = GetComponent<PointFollower>();
         pointFollower.onReachTargetEvent += () =>
         {
@@ -97,7 +96,7 @@ public class GridMovement : MonoBehaviour
             case Action.RIGHT:
             case Action.LEFT:
             case Action.DOWN:
-                spriteRotate.Play(currentAction.ToString());
+                SpriteRotate.Play(currentAction.ToString());
                 break;
         }
     }
@@ -152,7 +151,7 @@ public class GridMovement : MonoBehaviour
         {
             if (acceptingInput)
             {
-                spriteRotate.Play(action.ToString());
+                SpriteRotate.Play(action.ToString());
             }
             setMovement(action, x, y);
         }
