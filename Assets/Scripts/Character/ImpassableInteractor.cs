@@ -80,7 +80,8 @@ public class ImpassableInteractor : MonoBehaviour
         if (hit.collider != null)
         {
             abortMovement();
-        } else
+        }
+        else
         {
             interactTargetObject = null;
         }
