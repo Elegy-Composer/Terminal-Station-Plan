@@ -9,7 +9,6 @@ public class DummyNPC : MonoBehaviour, IInteractable
 
     public bool CheckInteractionEnd()
     {
-        // TODO: implement end condition
         return !interacting;
     }
 
