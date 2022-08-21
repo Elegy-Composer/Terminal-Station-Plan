@@ -14,7 +14,7 @@ public class Notification : MonoBehaviour
 
     public delegate void NotificationClosed();
     /// <summary>
-    /// The event that will invoke after moving to the destination
+    /// The event that will invoke after notification window is closed.
     /// </summary>
     public event NotificationClosed NotificationClosedEvent;
 
