@@ -24,5 +24,6 @@ public class DummyNPC : MonoBehaviour, IInteractable
     private void EndConversation()
     {
         interacting = false;
+        Notification.Instance.CloseNotification();
     }
 }
