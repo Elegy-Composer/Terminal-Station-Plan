@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4982,6 +4982,7 @@ MonoBehaviour:
   yUnit: 0.3402062
   stepDuration: 0.2
   SpriteRotate: {fileID: 1894065532}
+  _facing: 3
 --- !u!114 &1000565318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6959,8 +6960,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.5, y: 0}
-  - {x: 0.5, y: 0}
+  - {x: -0.10261178, y: 0.012042046}
+  - {x: 0.093580246, y: 0.015052319}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -7279,6 +7280,7 @@ MonoBehaviour:
   yUnit: 0.3402062
   stepDuration: 0.2
   SpriteRotate: {fileID: 1269008931}
+  _facing: 3
 --- !u!114 &1655981776
 MonoBehaviour:
   m_ObjectHideFlags: 0
