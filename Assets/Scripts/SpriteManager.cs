@@ -53,13 +53,14 @@ public class SpriteManager : MonoBehaviour
 
     private void SwitchToTransitionSprite()
     {
-        transitionSprite.sprite = normalSprite.sprite;
+        transitionAnimator.Play(GetComponentInParent<GridMovement>().Facing.ToString());
         transitionSprite.enabled = true;
         GetComponentInParent<GridMovement>().SpriteRotate = transitionAnimator;
         normalSprite.enabled = false;
     }
     private void SwitchToNormalSprite()
     {
+        normalAnimator.Play(GetComponentInParent<GridMovement>().Facing.ToString());
         normalSprite.enabled = true;
         GetComponentInParent<GridMovement>().SpriteRotate = normalAnimator;
         transitionSprite.enabled = false;
