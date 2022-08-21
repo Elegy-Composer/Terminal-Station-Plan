@@ -18,7 +18,7 @@ public abstract class OffsetTile : MonoBehaviour
         if (IsAligned) return;
 
         if (!PlayerStepOn(collision)) return;
-
+        Debug.Log("player enter " + gameObject.name);
         characterStepOn = collision.gameObject;
         OffsetOnStep();
         AfterStep();
@@ -28,7 +28,7 @@ public abstract class OffsetTile : MonoBehaviour
         if (IsAligned) return;
 
         if (!PlayerStepOn(collision)) return;
-
+        Debug.Log("player exit " + gameObject.name);
         OffsetOnLeave();
         AfterLeave();
         characterStepOn = null;
