@@ -119,7 +119,8 @@ public class MovePlatform : MonoBehaviour, IMapOffset
                 //Debug.Log("MOVING STOP!!");
                 if (IsStepped && Raised)
                 {
-                    character.transform.Find("NormalPivot").GetComponent<SortingGroup>().sortingLayerName = "Raised";
+                    //character.transform.Find("MovablePivot").GetComponent<SortingGroup>().sortingOrder = 0;
+                    //character.transform.Find("NormalPivot").GetComponent<SortingGroup>().sortingLayerName = "Raised";
                     //character.GetComponentInChildren<SortingGroup>().sortingOrder = 0;
                 }
             }
@@ -135,8 +136,8 @@ public class MovePlatform : MonoBehaviour, IMapOffset
                 character.GetComponent<GridMovement>().enabled = false;
                 character.transform.position += movement;
                 character.GetComponent<PointFollower>().UpdateTargetBy(movement);
-
-                character.transform.Find("NormalPivot").GetComponent<SortingGroup>().sortingLayerName = "MapObject";
+                //character.transform.Find("MovablePivot").GetComponent<SortingGroup>().sortingOrder = 1;
+                //character.transform.Find("NormalPivot").GetComponent<SortingGroup>().sortingLayerName = "MapObject";
             }
 
             CheckSorting();
@@ -147,15 +148,25 @@ public class MovePlatform : MonoBehaviour, IMapOffset
     {
         if (activationCounter > 0)
         {
-            if (Vector3.Distance(gameObject.transform.position, movePosition) < 0.15f)
+            if (Vector3.Distance(gameObject.transform.position, targetWorld) < 0.10f)
             {
+                if (IsStepped)
+                {
+                    character.transform.Find("MovablePivot").GetComponent<SortingGroup>().sortingOrder = 1;
+                    character.transform.Find("NormalPivot").GetComponent<SortingGroup>().sortingLayerName = "Raised";
+                }
                 rend.sortingLayerName = "Raised";
             }
         }
         else
         {
-            if (Vector3.Distance(gameObject.transform.position, movePosition) > 0.15f)
+            if (Vector3.Distance(gameObject.transform.position, targetWorld) > 0.10f)
             {
+                if (IsStepped)
+                {
+                    character.transform.Find("MovablePivot").GetComponent<SortingGroup>().sortingOrder = 0;
+                    character.transform.Find("NormalPivot").GetComponent<SortingGroup>().sortingLayerName = "MapObject";
+                }
                 rend.sortingLayerName = "Platform";
             }
         }
