@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 7439722824231644020}
   - component: {fileID: 7439722824231644025}
   - component: {fileID: 7439722824231644024}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,6 +317,8 @@ MonoBehaviour:
   yUnit: 0.3402062
   tilemap: {fileID: 0}
   moving: 0
+  VerticalOffset: 0
+  HorizontalOffset: 0
 --- !u!60 &7439722824231644020
 PolygonCollider2D:
   m_ObjectHideFlags: 0
