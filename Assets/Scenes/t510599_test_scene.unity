@@ -2612,6 +2612,7 @@ MonoBehaviour:
   xUnit: 1
   yUnit: 0.3402062
   tilemap: {fileID: 1425439408}
+  moving: 0
 --- !u!60 &703492825
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2841,11 +2842,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1425439408}
   movingSpeed: 0.1
---- !u!114 &785212927 stripped
+--- !u!114 &785212931
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 781009976834996577, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1303590854}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 258850249}
   m_Enabled: 1
@@ -2853,6 +2854,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b64ac922449503740a905da9fc71e443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  otherInteractor: {fileID: 1707362422}
 --- !u!1 &798842461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3403,7 +3408,7 @@ PrefabInstance:
         type: 3}
       propertyPath: otherInteractor
       value: 
-      objectReference: {fileID: 1707362418}
+      objectReference: {fileID: 0}
     - target: {fileID: 5011329989442193574, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
         type: 3}
       propertyPath: m_Name
@@ -3494,6 +3499,11 @@ PrefabInstance:
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 1425439408}
+    - target: {fileID: 5011329989442193594, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
+        type: 3}
+      propertyPath: SpriteRotate
+      value: 
+      objectReference: {fileID: 1186764591}
     - target: {fileID: 5011329989442193596, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
         type: 3}
       propertyPath: otherInteractor
@@ -5737,7 +5747,7 @@ PrefabInstance:
         type: 3}
       propertyPath: otherInteractor
       value: 
-      objectReference: {fileID: 785212927}
+      objectReference: {fileID: 0}
     - target: {fileID: 5011329989442193574, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
         type: 3}
       propertyPath: m_Name
@@ -5828,6 +5838,11 @@ PrefabInstance:
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 1425439408}
+    - target: {fileID: 5011329989442193594, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
+        type: 3}
+      propertyPath: SpriteRotate
+      value: 
+      objectReference: {fileID: 1729040702}
     - target: {fileID: 5011329989442193596, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
         type: 3}
       propertyPath: otherInteractor
@@ -5943,11 +5958,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1425439408}
   movingSpeed: 0.1
---- !u!114 &1707362418 stripped
+--- !u!114 &1707362422
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 781009976834996577, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1707362408}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370220863}
   m_Enabled: 1
@@ -5955,6 +5970,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b64ac922449503740a905da9fc71e443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  otherInteractor: {fileID: 785212931}
 --- !u!1 &1729040699 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5011329990471856863, guid: 6a0103c6666c8d04bbd1e684343a0a1a,
