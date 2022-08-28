@@ -306,6 +306,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_2P
       objectReference: {fileID: 0}
+    - target: {fileID: 2470534266370304792, guid: f8af041d9e5c91b40acde3af53899501,
+        type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 2084451318}
     - target: {fileID: 2470534266370304794, guid: f8af041d9e5c91b40acde3af53899501,
         type: 3}
       propertyPath: otherInteractor
@@ -438,7 +443,7 @@ PrefabInstance:
     - target: {fileID: 505959569468933103, guid: d84b2efade7bd2646b2158686033e972,
         type: 3}
       propertyPath: m_RootOrder
-      value: 34
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 505959569468933103, guid: d84b2efade7bd2646b2158686033e972,
         type: 3}
@@ -3346,6 +3351,11 @@ PrefabInstance:
       propertyPath: otherInteractor
       value: 
       objectReference: {fileID: 1097655427}
+    - target: {fileID: 1068218978245809021, guid: dd098490cc6c7d04492ac7c08e506340,
+        type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 2084451318}
     - target: {fileID: 1068218979012799797, guid: dd098490cc6c7d04492ac7c08e506340,
         type: 3}
       propertyPath: m_Enabled

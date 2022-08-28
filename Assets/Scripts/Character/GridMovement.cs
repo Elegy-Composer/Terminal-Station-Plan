@@ -8,8 +8,10 @@ using UnityEngine.Tilemaps;
 /// </summary>
 public class GridMovement : MonoBehaviour
 {
-    public float xUnit = 1f;
-    public float yUnit = 0.37f;
+    public Grid grid;
+
+    public float xUnit => grid.cellSize.x;
+    public float yUnit => grid.cellSize.y;
 
     public float stepDuration = 0.5f;
     private float stepStopAccumulated = 0f;
