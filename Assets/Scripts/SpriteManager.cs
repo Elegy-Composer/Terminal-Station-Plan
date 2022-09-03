@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SpriteManager : MonoBehaviour
 {   
@@ -16,14 +17,20 @@ public class SpriteManager : MonoBehaviour
     private Animator transitionAnimator;
     [SerializeField]
     private Animator normalAnimator;
-    [SerializeField]
+
     private Vector3 offsetWithTransitionSprite;
 
     private bool changingHeight = false;
 
+    private string m_sortingLayerName;
     private float m_yFixedPos;
     private Vector3 savedPivotLocalPos;
     private Vector3 savedSpriteLocalPos;
+
+    private void Awake()
+    {
+        offsetWithTransitionSprite = transitionSpriteTransform.position - gameObject.transform.position;
+    }
 
     private void FixedUpdate()
     {
@@ -39,10 +46,11 @@ public class SpriteManager : MonoBehaviour
         transitionSpriteTransform.position = gameObject.transform.position + offsetWithTransitionSprite;
     }
 
-    public void OnHeightChangeStart(float yFixedPos)
+    public void OnHeightChangeStart(float yFixedPos, string sortingLayerName)
     {
         Debug.Log("height change start");
         changingHeight = true;
+        m_sortingLayerName = sortingLayerName;
         m_yFixedPos = yFixedPos;
         FixedPivotWhileMoving(); // place the pivot to the desired position first to avoid wrong sorting at the start
         SwitchToTransitionSprite();
@@ -59,16 +67,24 @@ public class SpriteManager : MonoBehaviour
 
     private void SwitchToTransitionSprite()
     {
-        transitionAnimator.Play(GetComponentInParent<GridMovement>().Facing.ToString());
+        if (GetComponentInParent<GridMovement>() != null)
+        {
+            transitionAnimator.Play(GetComponentInParent<GridMovement>().Facing.ToString());
+            GetComponentInParent<GridMovement>().SpriteRotate = transitionAnimator;
+        }
+        movablePivot.GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID(m_sortingLayerName);
+        Debug.Log("Current sorting layer is: " + transitionSprite.sortingLayerName);
         transitionSprite.enabled = true;
-        GetComponentInParent<GridMovement>().SpriteRotate = transitionAnimator;
         normalSprite.enabled = false;
     }
     private void SwitchToNormalSprite()
     {
-        normalAnimator.Play(GetComponentInParent<GridMovement>().Facing.ToString());
+        if (GetComponentInParent<GridMovement>() != null)
+        {
+            normalAnimator.Play(GetComponentInParent<GridMovement>().Facing.ToString());
+            GetComponentInParent<GridMovement>().SpriteRotate = normalAnimator;
+        }
         normalSprite.enabled = true;
-        GetComponentInParent<GridMovement>().SpriteRotate = normalAnimator;
         transitionSprite.enabled = false;
     }
 
