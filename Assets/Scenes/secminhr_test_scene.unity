@@ -3471,6 +3471,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4958872825916025940, guid: c42903ead897beb4f9f98b1568c3cb53,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c42903ead897beb4f9f98b1568c3cb53, type: 3}
 --- !u!4 &855447665 stripped
@@ -3573,6 +3578,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8164be588fb25d549b8dfcfc4609f1b1, type: 3}
+--- !u!1 &896115965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6081139256600177524, guid: 8164be588fb25d549b8dfcfc4609f1b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1547749426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!68 &896115972
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896115965}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.23234439, y: 0.2030383}
+  - {x: 0.0075834394, y: 0.09852955}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &896176740
 GameObject:
   m_ObjectHideFlags: 0
@@ -3604,6 +3637,12 @@ Transform:
   m_Father: {fileID: 2084451319}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &906376944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4958872825916025937, guid: c42903ead897beb4f9f98b1568c3cb53,
+    type: 3}
+  m_PrefabInstance: {fileID: 850064038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &918210121
 GameObject:
   m_ObjectHideFlags: 0
@@ -4239,6 +4278,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 850064038}
   m_PrefabAsset: {fileID: 0}
+--- !u!68 &1171668768
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906376944}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.0015256405, y: 0.110052586}
+  - {x: 0.2766499, y: -0.01554656}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!68 &1238002324 stripped
 EdgeCollider2D:
   m_CorrespondingSourceObject: {fileID: 7060239986491409132, guid: fcdfbb301b719b948a71ba79bc4e9cfe,
@@ -4918,6 +4979,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2084451319}
     m_Modifications:
+    - target: {fileID: 6081139256600177526, guid: 8164be588fb25d549b8dfcfc4609f1b1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081139256600177527, guid: 8164be588fb25d549b8dfcfc4609f1b1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6081139256600177529, guid: 8164be588fb25d549b8dfcfc4609f1b1,
         type: 3}
       propertyPath: tilemap
@@ -4987,6 +5058,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081139257475423675, guid: 8164be588fb25d549b8dfcfc4609f1b1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.585
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8164be588fb25d549b8dfcfc4609f1b1, type: 3}
