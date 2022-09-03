@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeightDetectorManager : MonoBehaviour
 {
-    public EdgeCollider2D heightDetector;
+    public BoxCollider2D heightDetector;
     private MovePlatform movePlatform;
 
     // Start is called before the first frame update
