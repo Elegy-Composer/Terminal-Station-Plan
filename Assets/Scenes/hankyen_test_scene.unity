@@ -178,6 +178,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1068218977782434181, guid: dd098490cc6c7d04492ac7c08e506340,
         type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068218977782434181, guid: dd098490cc6c7d04492ac7c08e506340,
+        type: 3}
       propertyPath: m_SortingLayerID
       value: -917397475
       objectReference: {fileID: 0}
@@ -199,7 +204,7 @@ PrefabInstance:
     - target: {fileID: 1068218978245808901, guid: dd098490cc6c7d04492ac7c08e506340,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.989
+      value: -1.01
       objectReference: {fileID: 0}
     - target: {fileID: 1068218978245808901, guid: dd098490cc6c7d04492ac7c08e506340,
         type: 3}
@@ -286,6 +291,11 @@ PrefabInstance:
       propertyPath: otherInteractor
       value: 
       objectReference: {fileID: 1023015723}
+    - target: {fileID: 1068218978245809021, guid: dd098490cc6c7d04492ac7c08e506340,
+        type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 973522433}
     - target: {fileID: 1068218979012799797, guid: dd098490cc6c7d04492ac7c08e506340,
         type: 3}
       propertyPath: m_Enabled
@@ -3677,12 +3687,12 @@ PrefabInstance:
     - target: {fileID: 2470534264915310668, guid: f8af041d9e5c91b40acde3af53899501,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2470534264915310668, guid: f8af041d9e5c91b40acde3af53899501,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: -917397475
+      value: -1261725205
       objectReference: {fileID: 0}
     - target: {fileID: 2470534266248434236, guid: f8af041d9e5c91b40acde3af53899501,
         type: 3}
@@ -3697,12 +3707,12 @@ PrefabInstance:
     - target: {fileID: 2470534266370304773, guid: f8af041d9e5c91b40acde3af53899501,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.54
+      value: 2.086
       objectReference: {fileID: 0}
     - target: {fileID: 2470534266370304773, guid: f8af041d9e5c91b40acde3af53899501,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.98
+      value: 2.903
       objectReference: {fileID: 0}
     - target: {fileID: 2470534266370304773, guid: f8af041d9e5c91b40acde3af53899501,
         type: 3}
@@ -3749,6 +3759,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_2P
       objectReference: {fileID: 0}
+    - target: {fileID: 2470534266370304792, guid: f8af041d9e5c91b40acde3af53899501,
+        type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 973522433}
     - target: {fileID: 2470534266370304794, guid: f8af041d9e5c91b40acde3af53899501,
         type: 3}
       propertyPath: otherInteractor
@@ -4829,6 +4844,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 973522434}
     m_Modifications:
+    - target: {fileID: 7060239986491409107, guid: fcdfbb301b719b948a71ba79bc4e9cfe,
+        type: 3}
+      propertyPath: PivotPosition
+      value: 
+      objectReference: {fileID: 352225475}
     - target: {fileID: 7060239986491409132, guid: fcdfbb301b719b948a71ba79bc4e9cfe,
         type: 3}
       propertyPath: m_Enabled

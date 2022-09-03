@@ -29,18 +29,24 @@ public class SpriteManager : MonoBehaviour
     {
         if (changingHeight)
         {
-            movablePivot.position = new Vector3(movablePivot.position.x, m_yFixedPos, movablePivot.position.z);
-            transitionSpriteTransform.position = gameObject.transform.position + offsetWithTransitionSprite;
+            FixedPivotWhileMoving();
         }
+    }
+
+    private void FixedPivotWhileMoving()
+    {
+        movablePivot.position = new Vector3(movablePivot.position.x, m_yFixedPos, movablePivot.position.z);
+        transitionSpriteTransform.position = gameObject.transform.position + offsetWithTransitionSprite;
     }
 
     public void OnHeightChangeStart(float yFixedPos)
     {
         Debug.Log("height change start");
-        SwitchToTransitionSprite();
-        SaveLocalPosition();
         changingHeight = true;
         m_yFixedPos = yFixedPos;
+        FixedPivotWhileMoving(); // place the pivot to the desired position first to avoid wrong sorting at the start
+        SwitchToTransitionSprite();
+        SaveLocalPosition();
     }
 
     public void OnHeightChangeEnd()
