@@ -43,7 +43,7 @@ public class GridMovement : MonoBehaviour
     /// </summary>
     public event BeforeMove BeforeMoveEvent;
 
-    public delegate void MoveFinished();
+    public delegate void MoveFinished(bool positionChanged);
     /// <summary>
     /// The event that will invoke after moving to the destination
     /// </summary>
@@ -58,7 +58,7 @@ public class GridMovement : MonoBehaviour
         pointFollower = GetComponent<PointFollower>();
         pointFollower.onReachTargetEvent += () =>
         {
-            MoveFinishedEvent?.Invoke();
+            MoveFinishedEvent?.Invoke(true);
             accumulating = true;
         };
     }
@@ -82,6 +82,11 @@ public class GridMovement : MonoBehaviour
                         pointFollower.UpdateTarget(gameObject.transform.position + move);
                         accumulating = false;
                     }
+                    else
+                    {
+                        MoveFinishedEvent?.Invoke(false);
+                    }
+
                 }
             }
         }

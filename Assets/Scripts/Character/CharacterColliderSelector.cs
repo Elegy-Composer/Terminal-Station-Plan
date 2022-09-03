@@ -25,7 +25,7 @@ public class CharacterColliderSelector : MonoBehaviour
                 characterCollider.UseUDCollider();
             }
         };
-        movement.MoveFinishedEvent += characterCollider.UseAllColliders;
+        movement.MoveFinishedEvent += (_) => characterCollider.UseAllColliders();
     }
 
     private bool movingUpOrDown(GridMovement movement)

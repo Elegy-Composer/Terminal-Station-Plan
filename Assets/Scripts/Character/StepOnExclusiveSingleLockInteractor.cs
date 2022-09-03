@@ -59,8 +59,12 @@ public class StepOnExclusiveSingleLockInteractor : MonoBehaviour
         }
     }
 
-    private void afterMovement()
+    private void afterMovement(bool positionChanged)
     {
-        interactTargetObject?.Interact();
+        if (positionChanged)
+        {
+
+            interactTargetObject?.Interact();
+        }
     }
 }
