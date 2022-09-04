@@ -17,6 +17,7 @@ public class SpriteManager : MonoBehaviour
     private Animator transitionAnimator;
     [SerializeField]
     private Animator normalAnimator;
+    public int SortingPriority;
 
     private Vector3 offsetWithTransitionSprite;
 
@@ -42,7 +43,9 @@ public class SpriteManager : MonoBehaviour
 
     private void FixedPivotWhileMoving()
     {
+        
         movablePivot.position = new Vector3(movablePivot.position.x, m_yFixedPos, movablePivot.position.z);
+        Debug.Log(gameObject.name + "y pos= " + movablePivot.position.y.ToString());
         transitionSpriteTransform.position = gameObject.transform.position + offsetWithTransitionSprite;
     }
 
@@ -51,6 +54,7 @@ public class SpriteManager : MonoBehaviour
         Debug.Log("height change start");
         changingHeight = true;
         m_sortingLayerName = sortingLayerName;
+        Debug.Log(gameObject.name + " y pos= " + yFixedPos.ToString());
         m_yFixedPos = yFixedPos;
         FixedPivotWhileMoving(); // place the pivot to the desired position first to avoid wrong sorting at the start
         SwitchToTransitionSprite();

@@ -14,7 +14,7 @@ public class MovePlatform : MonoBehaviour
     private Vector3 originWorld, targetWorld, movePosition;
     public bool moving = false;
     private int activationCounter = 0;
-    private SpriteRenderer rend;
+    private SortingGroup normalSortingGroup;
     private LightCircle lightCircle;
     private bool prevRaised = false;
 
@@ -88,7 +88,9 @@ public class MovePlatform : MonoBehaviour
     {
         originWorld = gameObject.transform.parent.Find("Origin").gameObject.transform.position;
         targetWorld = gameObject.transform.parent.Find("Target").gameObject.transform.position;
-        rend = GetComponent<SpriteRenderer>();
+        Debug.Log(gameObject.name + gameObject.transform.Find("NormalPivot"));
+        normalSortingGroup = gameObject.transform.Find("NormalPivot")?.GetComponent<SortingGroup>();
+        Debug.Log(normalSortingGroup);
         movePosition = originWorld;
         lightCircle = transform.parent.GetComponentInChildren<LightCircle>();
         //StartCoroutine(TestMoving());
@@ -169,7 +171,7 @@ public class MovePlatform : MonoBehaviour
                     character.transform.Find("MovablePivot").GetComponent<SortingGroup>().sortingOrder = 1;
                     character.transform.Find("NormalPivot").GetComponent<SortingGroup>().sortingLayerName = "Raised";
                 }
-                rend.sortingLayerName = "Raised";
+                normalSortingGroup.sortingLayerName = "Raised";
             }
         }
         else
@@ -181,7 +183,7 @@ public class MovePlatform : MonoBehaviour
                     character.transform.Find("MovablePivot").GetComponent<SortingGroup>().sortingOrder = 0;
                     character.transform.Find("NormalPivot").GetComponent<SortingGroup>().sortingLayerName = "MapObject";
                 }
-                rend.sortingLayerName = "Platform";
+                normalSortingGroup.sortingLayerName = "Platform";
             }
         }
     }

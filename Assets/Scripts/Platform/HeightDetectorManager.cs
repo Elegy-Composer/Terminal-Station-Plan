@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeightDetectorManager : MonoBehaviour
 {
-    public BoxCollider2D heightDetector;
+    public BoxCollider2D[] heightDetectors;
     private MovePlatform movePlatform;
 
     // Start is called before the first frame update
@@ -18,11 +18,17 @@ public class HeightDetectorManager : MonoBehaviour
     {
         if(movePlatform.IsStepped)
         {
-            heightDetector.enabled = true;
+            foreach (BoxCollider2D heightDetector in heightDetectors)
+            {
+                heightDetector.enabled = true;
+            }
         }
         else
         {
-            heightDetector.enabled = false;
+            foreach (BoxCollider2D heightDetector in heightDetectors)
+            {
+                heightDetector.enabled = false;
+            }
         }
     }
 }
