@@ -77,11 +77,7 @@ public class ImpassableInteractor : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(vec.x * 0.5f, vec.y * 0.5f, 0), vec, 0.5f, interactableLayer);
 
         // If it hits something...
-        if (hit.collider != null)
-        {
-            abortMovement();
-        }
-        else
+        if (hit.collider == null)
         {
             interactTargetObject = null;
         }
