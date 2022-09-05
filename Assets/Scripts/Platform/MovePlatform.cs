@@ -12,7 +12,7 @@ public class MovePlatform : MonoBehaviour
     public Tilemap tilemap;
     private GameObject character;
     private Vector3 originWorld, targetWorld, movePosition;
-    public bool moving = false;
+    //public bool moving = false;
     private int activationCounter = 0;
     private SortingGroup normalSortingGroup;
     private LightCircle lightCircle;
@@ -33,6 +33,29 @@ public class MovePlatform : MonoBehaviour
         get
         {
             return character != null;
+        }
+    }
+    public GameObject Character
+    {
+        get => character;
+    }
+    private bool _moving = false;
+    public bool moving
+    {
+        get => _moving;
+
+        private set
+        {
+            if (value == _moving) return;
+            _moving = value;
+            if (value)
+            {
+                gameObject.GetComponent<HeightDetectorManager>()?.EnableDetectors();
+            }
+            else
+            {
+                gameObject.GetComponent<HeightDetectorManager>()?.CloseDetectors();
+            }
         }
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class SpriteManager : MonoBehaviour
+public class SpriteManager : MonoBehaviour // [TODO] maybe add order to make more precise sorting(ie: yellow1)
 {   
     [SerializeField]
     private SpriteRenderer normalSprite;
@@ -13,11 +13,14 @@ public class SpriteManager : MonoBehaviour
     private Transform movablePivot;
     [SerializeField]
     private Transform transitionSpriteTransform;
+    public int SortingPriority;
+
+    [Header("Not necessary")]
     [SerializeField]
     private Animator transitionAnimator;
     [SerializeField]
     private Animator normalAnimator;
-    public int SortingPriority;
+    
 
     private Vector3 offsetWithTransitionSprite;
 
