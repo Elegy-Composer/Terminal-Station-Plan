@@ -503,7 +503,7 @@ PrefabInstance:
     - target: {fileID: 505959569468933105, guid: d84b2efade7bd2646b2158686033e972,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d84b2efade7bd2646b2158686033e972, type: 3}
@@ -5931,8 +5931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1723736092}
   - component: {fileID: 1723736093}
-  - component: {fileID: 1723736094}
-  m_Layer: 11
+  m_Layer: 6
   m_Name: InteractableObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5976,27 +5975,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!50 &1723736094
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723736091}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!1 &1755834168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6081139256700975352, guid: 8164be588fb25d549b8dfcfc4609f1b1,
