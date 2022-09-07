@@ -51,6 +51,9 @@ TagManager:
   - name: MapObject
     uniqueID: 3377569821
     locked: 0
+  - name: Raising
+    uniqueID: 1126163163
+    locked: 0
   - name: Raised
     uniqueID: 3033242091
     locked: 0

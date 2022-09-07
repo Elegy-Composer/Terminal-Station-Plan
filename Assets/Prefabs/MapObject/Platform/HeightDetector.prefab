@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Collider: {fileID: 1144863451}
   PivotPosition: {fileID: 352225475}
-  SortingLayerName: Raised
+  SortingLayerName: Raising
 --- !u!61 &1144863451
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -35,10 +35,7 @@ public class MovePlatform : MonoBehaviour
             return character != null;
         }
     }
-    public GameObject Character
-    {
-        get => character;
-    }
+
     private bool _moving = false;
     public bool moving
     {
@@ -50,7 +47,13 @@ public class MovePlatform : MonoBehaviour
             _moving = value;
             if (value)
             {
-                gameObject.GetComponent<HeightDetectorManager>()?.EnableDetectors();
+                List<GameObject> detectTargets = new List<GameObject>();
+                detectTargets.Add(GetComponentInChildren<SpriteManager>().gameObject);
+                if (IsStepped)
+                {
+                    detectTargets.Add(character.GetComponentInChildren<SpriteManager>().gameObject);
+                }
+                gameObject.GetComponent<HeightDetectorManager>()?.EnableDetectors(detectTargets);
             }
             else
             {

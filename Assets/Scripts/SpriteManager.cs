@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class SpriteManager : MonoBehaviour // [TODO] maybe add order to make more precise sorting(ie: yellow1)
+public class SpriteManager : MonoBehaviour
 {   
     [SerializeField]
     private SpriteRenderer normalSprite;
@@ -25,6 +25,7 @@ public class SpriteManager : MonoBehaviour // [TODO] maybe add order to make mor
     private Vector3 offsetWithTransitionSprite;
 
     private bool changingHeight = false;
+    private GameObject currentDetector;
 
     private string m_sortingLayerName;
     private float m_yFixedPos;
@@ -52,10 +53,15 @@ public class SpriteManager : MonoBehaviour // [TODO] maybe add order to make mor
         transitionSpriteTransform.position = gameObject.transform.position + offsetWithTransitionSprite;
     }
 
-    public void OnHeightChangeStart(float yFixedPos, string sortingLayerName)
+    public void OnHeightChangeStart(float yFixedPos, string sortingLayerName, GameObject detector)
     {
+        if (changingHeight)
+        {
+            OnHeightChangeEnd(currentDetector); // start the next height changing process as soon as enter next detector
+        }
         Debug.Log("height change start");
         changingHeight = true;
+        currentDetector = detector;
         m_sortingLayerName = sortingLayerName;
         Debug.Log(gameObject.name + " y pos= " + yFixedPos.ToString());
         m_yFixedPos = yFixedPos;
@@ -64,8 +70,9 @@ public class SpriteManager : MonoBehaviour // [TODO] maybe add order to make mor
         SaveLocalPosition();
     }
 
-    public void OnHeightChangeEnd()
+    public void OnHeightChangeEnd(GameObject detector)
     {
+        if (detector != currentDetector) return;
         Debug.Log("height change end");
         SwitchToNormalSprite();
         ResumeLocalPosition();
