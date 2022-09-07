@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public class ActivatePlatform : MonoBehaviour
 {
-    // TODO: remove old variable which only handle single move platform
     public GameObject[] movePlatformObjectList;
     private List<MovePlatform> platforms = new List<MovePlatform>();
 
@@ -11,7 +10,7 @@ public class ActivatePlatform : MonoBehaviour
     {
         foreach (var platformObject in movePlatformObjectList)
         {
-            platforms.Add(platformObject.transform.Find("Platform").gameObject.GetComponent<MovePlatform>());
+            attachMovePlatform(platformObject.transform.Find("Platform").gameObject.GetComponent<MovePlatform>());
         }
     }
 
@@ -31,5 +30,15 @@ public class ActivatePlatform : MonoBehaviour
         {
             platforms.ForEach((p) => p.DeactivatePlatform());
         }
+    }
+
+    public void attachMovePlatform(MovePlatform platform)
+    {
+        if (!platforms.Contains(platform)) platforms.Add(platform);   
+    }
+
+    public void detachMovePlatform(MovePlatform platform)
+    {
+        if (platforms.Contains(platform)) platforms.Remove(platform);
     }
 }

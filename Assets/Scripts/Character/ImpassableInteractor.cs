@@ -18,9 +18,13 @@ public class ImpassableInteractor : MonoBehaviour
     private IInteractable interactTargetObject;
     private Vector2 facingVectorCache = Vector2.zero;
 
+    private GridMovement gridMovement;
+    // fetching acceptingInput from GridMovement
+    private bool acceptingInput => gridMovement.acceptingInput;
+
     void Start()
     {
-        GridMovement gridMovement = gameObject.GetComponent<GridMovement>();
+        gridMovement = gameObject.GetComponent<GridMovement>();
         gridMovement.BeforeMoveEvent += preMovement;
     }
 
@@ -28,6 +32,7 @@ public class ImpassableInteractor : MonoBehaviour
     public void OnPlayerInteract(InputValue value)
     {
         if (!value.isPressed) return;
+        if (!acceptingInput) return;
 
         // offset the raycast origin a little bit, so we won't interact with the block below us again
         RaycastHit2D hit = Physics2D.Raycast(
@@ -77,11 +82,7 @@ public class ImpassableInteractor : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(vec.x * 0.5f, vec.y * 0.5f, 0), vec, 0.5f, interactableLayer);
 
         // If it hits something...
-        if (hit.collider != null)
-        {
-            abortMovement();
-        }
-        else
+        if (hit.collider == null)
         {
             interactTargetObject = null;
         }
