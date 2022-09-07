@@ -12,9 +12,9 @@ public class MovePlatform : MonoBehaviour
     public Tilemap tilemap;
     private GameObject character;
     private Vector3 originWorld, targetWorld, movePosition;
-    public bool moving = false;
+    //public bool moving = false;
     private int activationCounter = 0;
-    private SpriteRenderer rend;
+    private SortingGroup normalSortingGroup;
     private LightCircle lightCircle;
     private bool prevRaised = false;
 
@@ -33,6 +33,32 @@ public class MovePlatform : MonoBehaviour
         get
         {
             return character != null;
+        }
+    }
+
+    private bool _moving = false;
+    public bool moving
+    {
+        get => _moving;
+
+        private set
+        {
+            if (value == _moving) return;
+            _moving = value;
+            if (value)
+            {
+                List<GameObject> detectTargets = new List<GameObject>();
+                detectTargets.Add(GetComponentInChildren<SpriteManager>().gameObject);
+                if (IsStepped)
+                {
+                    detectTargets.Add(character.GetComponentInChildren<SpriteManager>().gameObject);
+                }
+                gameObject.GetComponent<HeightDetectorManager>()?.EnableDetectors(detectTargets);
+            }
+            else
+            {
+                gameObject.GetComponent<HeightDetectorManager>()?.CloseDetectors();
+            }
         }
     }
 
@@ -88,7 +114,7 @@ public class MovePlatform : MonoBehaviour
     {
         originWorld = gameObject.transform.parent.Find("Origin").gameObject.transform.position;
         targetWorld = gameObject.transform.parent.Find("Target").gameObject.transform.position;
-        rend = GetComponent<SpriteRenderer>();
+        normalSortingGroup = gameObject.transform.Find("NormalPivot")?.GetComponent<SortingGroup>();
         movePosition = originWorld;
         lightCircle = transform.parent.GetComponentInChildren<LightCircle>();
         //StartCoroutine(TestMoving());
@@ -169,7 +195,7 @@ public class MovePlatform : MonoBehaviour
                     character.transform.Find("MovablePivot").GetComponent<SortingGroup>().sortingOrder = 1;
                     character.transform.Find("NormalPivot").GetComponent<SortingGroup>().sortingLayerName = "Raised";
                 }
-                rend.sortingLayerName = "Raised";
+                normalSortingGroup.sortingLayerName = "Raised";
             }
         }
         else
@@ -181,7 +207,7 @@ public class MovePlatform : MonoBehaviour
                     character.transform.Find("MovablePivot").GetComponent<SortingGroup>().sortingOrder = 0;
                     character.transform.Find("NormalPivot").GetComponent<SortingGroup>().sortingLayerName = "MapObject";
                 }
-                rend.sortingLayerName = "Platform";
+                normalSortingGroup.sortingLayerName = "MapObject";
             }
         }
     }

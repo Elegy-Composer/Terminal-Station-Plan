@@ -4,25 +4,20 @@ using UnityEngine;
 
 public class HeightDetectorManager : MonoBehaviour
 {
-    public EdgeCollider2D heightDetector;
-    private MovePlatform movePlatform;
+    public HeightChangeDetector[] heightDetectors;
 
-    // Start is called before the first frame update
-    void Start()
+    public void EnableDetectors(List<GameObject> detectTargets)
     {
-        movePlatform = GetComponent<MovePlatform>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(movePlatform.IsStepped)
+        foreach (HeightChangeDetector heightDetector in heightDetectors)
         {
-            heightDetector.enabled = true;
+            heightDetector.EnableDetector(detectTargets);
         }
-        else
+    }
+    public void CloseDetectors()
+    {
+        foreach (HeightChangeDetector heightDetector in heightDetectors)
         {
-            heightDetector.enabled = false;
+            heightDetector.CloseDetector();
         }
     }
 }
