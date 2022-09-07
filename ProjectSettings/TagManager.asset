@@ -45,14 +45,8 @@ TagManager:
   - name: Background
     uniqueID: 2954820799
     locked: 0
-  - name: Platform
-    uniqueID: 2204118235
-    locked: 0
   - name: MapObject
     uniqueID: 3377569821
-    locked: 0
-  - name: Raising
-    uniqueID: 1126163163
     locked: 0
   - name: Raised
     uniqueID: 3033242091

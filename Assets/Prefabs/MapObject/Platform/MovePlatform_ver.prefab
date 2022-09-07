@@ -41,8 +41,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065859449063884263}
   m_Enabled: 1
-  m_SortingLayerID: -2090849061
-  m_SortingLayer: 2
+  m_SortingLayerID: -917397475
+  m_SortingLayer: 3
   m_SortingOrder: 0
 --- !u!1 &2360877212671326139
 GameObject:
@@ -262,9 +262,9 @@ MonoBehaviour:
   transitionSprite: {fileID: 355613362905797631}
   movablePivot: {fileID: 6360550521912384078}
   transitionSpriteTransform: {fileID: 1441002022874338076}
+  SortingPriority: 0
   transitionAnimator: {fileID: 0}
   normalAnimator: {fileID: 0}
-  SortingPriority: 0
 --- !u!61 &5057321735869200966
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -353,8 +353,8 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5420607118392714736}
   m_Enabled: 1
-  m_SortingLayerID: -2090849061
-  m_SortingLayer: 2
+  m_SortingLayerID: -917397475
+  m_SortingLayer: 3
   m_SortingOrder: 0
 --- !u!1 &6081139255955856478
 GameObject:
@@ -429,7 +429,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1261725205
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b74585b0504d270408aeb6e1a207642a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -675,7 +675,6 @@ MonoBehaviour:
   xUnit: 1
   yUnit: 0.3402062
   tilemap: {fileID: 0}
-  moving: 0
   VerticalOffset: 0.055
   HorizontalOffset: 0
 --- !u!60 &6081139256600177526

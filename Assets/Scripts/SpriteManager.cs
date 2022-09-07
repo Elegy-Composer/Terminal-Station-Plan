@@ -21,12 +21,10 @@ public class SpriteManager : MonoBehaviour
     [SerializeField]
     private Animator normalAnimator;
     
-
-    private Vector3 offsetWithTransitionSprite;
-
     private bool changingHeight = false;
     private GameObject currentDetector;
 
+    private Vector3 offsetWithTransitionSprite;
     private string m_sortingLayerName;
     private float m_yFixedPos;
     private Vector3 savedPivotLocalPos;
@@ -34,6 +32,8 @@ public class SpriteManager : MonoBehaviour
 
     private void Awake()
     {
+        savedPivotLocalPos = movablePivot.localPosition;
+        savedSpriteLocalPos = transitionSpriteTransform.localPosition;
         offsetWithTransitionSprite = transitionSpriteTransform.position - gameObject.transform.position;
     }
 
@@ -47,9 +47,7 @@ public class SpriteManager : MonoBehaviour
 
     private void FixedPivotWhileMoving()
     {
-        
         movablePivot.position = new Vector3(movablePivot.position.x, m_yFixedPos, movablePivot.position.z);
-        Debug.Log(gameObject.name + "y pos= " + movablePivot.position.y.ToString());
         transitionSpriteTransform.position = gameObject.transform.position + offsetWithTransitionSprite;
     }
 
@@ -63,11 +61,9 @@ public class SpriteManager : MonoBehaviour
         changingHeight = true;
         currentDetector = detector;
         m_sortingLayerName = sortingLayerName;
-        Debug.Log(gameObject.name + " y pos= " + yFixedPos.ToString());
         m_yFixedPos = yFixedPos;
         FixedPivotWhileMoving(); // place the pivot to the desired position first to avoid wrong sorting at the start
         SwitchToTransitionSprite();
-        SaveLocalPosition();
     }
 
     public void OnHeightChangeEnd(GameObject detector)
@@ -87,7 +83,6 @@ public class SpriteManager : MonoBehaviour
             GetComponentInParent<GridMovement>().SpriteRotate = transitionAnimator;
         }
         movablePivot.GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID(m_sortingLayerName);
-        Debug.Log("Current sorting layer is: " + transitionSprite.sortingLayerName);
         transitionSprite.enabled = true;
         normalSprite.enabled = false;
     }
@@ -102,14 +97,9 @@ public class SpriteManager : MonoBehaviour
         transitionSprite.enabled = false;
     }
 
-    private void SaveLocalPosition()
-    {
-        savedPivotLocalPos = movablePivot.localPosition;
-        savedSpriteLocalPos = transitionSpriteTransform.localPosition;
-    }
     private void ResumeLocalPosition()
     {
         movablePivot.localPosition = savedPivotLocalPos;
-        transitionSprite.transform.localPosition = savedSpriteLocalPos;
+        transitionSpriteTransform.localPosition = savedSpriteLocalPos;
     }
 }

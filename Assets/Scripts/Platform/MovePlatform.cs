@@ -114,9 +114,7 @@ public class MovePlatform : MonoBehaviour
     {
         originWorld = gameObject.transform.parent.Find("Origin").gameObject.transform.position;
         targetWorld = gameObject.transform.parent.Find("Target").gameObject.transform.position;
-        Debug.Log(gameObject.name + gameObject.transform.Find("NormalPivot"));
         normalSortingGroup = gameObject.transform.Find("NormalPivot")?.GetComponent<SortingGroup>();
-        Debug.Log(normalSortingGroup);
         movePosition = originWorld;
         lightCircle = transform.parent.GetComponentInChildren<LightCircle>();
         //StartCoroutine(TestMoving());
@@ -209,7 +207,7 @@ public class MovePlatform : MonoBehaviour
                     character.transform.Find("MovablePivot").GetComponent<SortingGroup>().sortingOrder = 0;
                     character.transform.Find("NormalPivot").GetComponent<SortingGroup>().sortingLayerName = "MapObject";
                 }
-                normalSortingGroup.sortingLayerName = "Platform";
+                normalSortingGroup.sortingLayerName = "MapObject";
             }
         }
     }
